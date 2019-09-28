@@ -1,0 +1,8 @@
+*.exe
+# *.pbb
+# *.dll
+# *.cache
+# *.csproj.FileListAbsolute.txt
+
+*.zip
+

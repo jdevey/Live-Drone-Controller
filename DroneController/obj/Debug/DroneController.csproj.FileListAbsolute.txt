@@ -1,0 +1,6 @@
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\bin\Debug\DroneController.exe
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\bin\Debug\DroneController.pdb
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\obj\Debug\DroneController.csprojAssemblyReference.cache
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\obj\Debug\DroneController.csproj.CoreCompileInputs.cache
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\obj\Debug\DroneController.exe
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\obj\Debug\DroneController.pdb
