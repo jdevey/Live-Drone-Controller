@@ -1,23 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73380a18-6a3e-48af-b81a-12bb77e16fda" name="Default Changelist" comment="" />
+    <list default="true" id="73380a18-6a3e-48af-b81a-12bb77e16fda" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shared/DroneState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shared/Message.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shared/MessageConstants.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shared/SetupAction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shared/Status.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneController/DroneAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/DroneAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneController/DroneController.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/DroneController.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneController/Maneuver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Maneuver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneController/SleepAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/SleepAction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/Shared.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Shared.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/DroneActionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/DroneActionTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/DroneSessionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/DroneSessionTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/DroneSimulator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/DroneSimulator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/DroneUDPClientTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/DroneUDPClientTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/ManeuverTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/ManeuverTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/MissionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/MissionTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/Server.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/SleepActionTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/SleepActionTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/TestConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/TestConstants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/UDPBaseTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/UDPBaseTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/UDPSocket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/UDPSocket.cs" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/DroneController/Flyer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DroneController/DroneAction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/UnitTests/DroneSessionTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Simulator/Simulator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Shared/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DroneController/MyUDP.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/DroneAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Dump/shitHole/p2.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/UnitTests/UDPSocket.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Dump/shitHole/p1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DroneController/Flyer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitTests/DroneActionTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitTests/DroneSessionTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitTests/DroneSimulator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitTests/DroneUDPClientTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitTests/ManeuverTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitTests/MissionTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitTests/Server.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitTests/SleepActionTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitTests/TestConstants.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitTests/UDPBaseTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitTests/UDPSocket.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/SetupAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/MessageConstants.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/Message.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/Status.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/DroneState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Simulator/Simulator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DroneController/MyUDP.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/SleepAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DroneController/Mission.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/Maneuver.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -31,14 +76,39 @@
         <option value="$PROJECT_DIR$/UnitTests/UnitTest1.cs" />
         <option value="$PROJECT_DIR$/Simulator/Program.cs" />
         <option value="$PROJECT_DIR$/Shared/Program.cs" />
+        <option value="$PROJECT_DIR$/Shared/DroneState.cs" />
+        <option value="$PROJECT_DIR$/Shared/MessageConstants.cs" />
+        <option value="$PROJECT_DIR$/Shared/setupAction.cs" />
+        <option value="$PROJECT_DIR$/Shared/SetupAction.cs" />
+        <option value="$PROJECT_DIR$/Shared/SleepAction.cs" />
+        <option value="$PROJECT_DIR$/Shared/Message.cs" />
+        <option value="$PROJECT_DIR$/Shared/Maneuver.cs" />
+        <option value="$PROJECT_DIR$/Shared/Status.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/DroneActionTests.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/DroneSessionTests.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/DroneSimulator.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/DroneUDPClientTests.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/ManeuverTests.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/MissionTests.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/Server.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/SleepActionTests.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/UDPBaseTests.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/UDPSocket.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/TestConstants.cs" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1R26uGzylfZSyz4NU2mDn47IinA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="Inspections-C#" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -89,7 +159,7 @@
       <workItem from="1569026718279" duration="2469000" />
       <workItem from="1569359270689" duration="819000" />
       <workItem from="1569635662251" duration="1377000" />
-      <workItem from="1569700335842" duration="2788000" />
+      <workItem from="1569700335842" duration="16206000" />
     </task>
     <servers />
   </component>
@@ -98,6 +168,17 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
   </component>

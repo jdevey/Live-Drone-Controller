@@ -1,10 +1,15 @@
 ﻿﻿﻿using System;
-using System.Threading;
+  using System.Collections.Generic;
+  using System.Threading;
 
 namespace DroneController
 {
   public class SleepAction : DroneAction
   {
+    private static readonly HashSet<string> KEYWORD_LIST = new HashSet<string>
+    {
+      "sleep"
+    };
     // private string m_stringRep;
     private int sleepTime { get; }
     // int sleepTime;
@@ -13,6 +18,16 @@ namespace DroneController
     {
       stringRep = stringRep_;
       sleepTime = sleepTime_;
+    }
+    
+//    public static string getKeyWord()
+//    {
+//      return "sleep";
+//    }
+    
+    public static HashSet<string> getKeyWordList()
+    {
+      return KEYWORD_LIST;
     }
 
     //string DroneAction.stringRep
