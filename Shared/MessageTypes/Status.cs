@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Shared
+namespace Shared.MessageTypes
 {
 	public class Status : Message
 	{
@@ -22,10 +22,6 @@ namespace Shared
 		private double accelerationY;
 		private double accelerationZ;
 		
-		private static readonly HashSet<string> KEYWORD_LIST = new HashSet<string>
-		{
-			"mid"
-		};
 
 //		public Status(int pitch, int roll, int yaw, int speedX, int speedY, int speedZ,
 //			int lowTemperature, int highTemperature, int flightDistance, int height,
@@ -55,9 +51,9 @@ namespace Shared
 			parseData(data);
 		}
 		
-		public static HashSet<string> getKeyWordList()
+		public static string getKeyword()
 		{
-			return KEYWORD_LIST;
+			return "mid";
 		}
 
 		public string getMessageText()

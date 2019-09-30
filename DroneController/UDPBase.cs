@@ -28,7 +28,7 @@ namespace DroneController
 				int SIO_UDP_CONNRESET = -1744830452;
 				droneUDPClient.Client.IOControl(
 					(IOControlCode)SIO_UDP_CONNRESET,
-					new byte[] { 0, 0, 0, 0 }, 
+					new byte[] { 0, 0, 0, 0 },
 					null
 				);
 

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
-using DroneController;
+//using DroneController;
+using Shared.MessageTypes;
+using Shared.MessageTypes.Maneuvers;
 
 namespace Shared
 {
@@ -16,6 +18,11 @@ namespace Shared
 		{
 			this.messageText = messageText; // TODO fix the messageText shit
 		}
+		
+//		public virtual string getKeyword()
+//		{
+//			return "";
+//		}
 
 		private static List<string> splitArgs(string[] words)
 		{
@@ -28,32 +35,14 @@ namespace Shared
 			return args;
 		}
 
-		public static Message decode(byte[] bytes, int offset, int length)
+		public static Message decode(string text)
 		{
-			Message message = null;
-			if (bytes != null)
+			if (!String.IsNullOrEmpty(text))
 			{
-				length = Math.Min(bytes.Length, offset + length);
-
-				string data = Encoding.UTF8.GetString(bytes).Substring(offset, length);
-				data = data.Trim();
-
-				if (Status.getKeyWordList().Any(keyword => data.StartsWith(keyword)))
-					//if (data.StartsWith(Status.getKeyWord()))
-					message = new Status(data);
-
-				if (Maneuver.getKeyWordList().Any(keyword => data.StartsWith(keyword)))
-				{
-					string[] words = data.Split(' ');
-					List<string> args = splitArgs(words);
-					//message = new Maneuver(words[0], args);
-				}
-
-				// TODO: decode all of the other kinds of messages based on what the message starts with.  If it doesn't
-				//       start with a recognized key word, assume it is an info message (i.e., a reply to a query)
+				return MessageFactory.createMessage(text);
 			}
 
-			return message;
+			return null;
 		}
 
 		public byte[] encode()

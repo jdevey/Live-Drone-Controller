@@ -9,7 +9,27 @@
       "restore": {
         "projectUniqueName": "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\DroneController\\DroneController.csproj",
         "projectName": "DroneController",
-        "projectPath": "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\DroneController\\DroneController.csproj"
+        "projectPath": "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\DroneController\\DroneController.csproj",
+        "frameworks": {
+          "net452": {
+            "projectReferences": {
+              "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\Shared\\Shared.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net452": {}
+      }
+    },
+    "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\Shared\\Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\Shared\\Shared.csproj",
+        "projectName": "Shared",
+        "projectPath": "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\Shared\\Shared.csproj"
       },
       "frameworks": {
         "net452": {}

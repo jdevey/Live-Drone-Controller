@@ -1,12 +1,7 @@
-﻿using System.Net.Sockets;
-
-namespace DroneController
+﻿namespace Simulator
 {
 	public class Simulator
 	{
-		public Simulator(string Ip, int remoteIp)
-		{
-			
-		}
+		
 	}
 }

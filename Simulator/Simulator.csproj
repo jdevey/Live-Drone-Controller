@@ -4,8 +4,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4EF33BF7-F2EB-4EC8-B2A1-277A002227F4}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{3E5C720C-6184-440E-8711-F6DB3FB2CA60}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Simulator</RootNamespace>
     <AssemblyName>Simulator</AssemblyName>
@@ -38,14 +38,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Simulator.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DroneController\DroneController.csproj">
-      <Project>{74e3ade7-304e-4d01-aa0a-5a38d9482b32}</Project>
-      <Name>DroneController</Name>
-    </ProjectReference>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

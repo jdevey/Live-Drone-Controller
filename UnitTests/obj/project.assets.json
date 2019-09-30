@@ -1648,11 +1648,23 @@
       },
       "DroneController/1.0.0": {
         "type": "project",
+        "dependencies": {
+          "Shared": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/DroneController.dll": {}
         },
         "runtime": {
           "bin/placeholder/DroneController.dll": {}
+        }
+      },
+      "Shared/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Shared.dll": {}
         }
       }
     }
@@ -5757,6 +5769,11 @@
       "type": "project",
       "path": "../DroneController/DroneController.csproj",
       "msbuildProject": "../DroneController/DroneController.csproj"
+    },
+    "Shared/1.0.0": {
+      "type": "project",
+      "path": "../Shared/Shared.csproj",
+      "msbuildProject": "../Shared/Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {

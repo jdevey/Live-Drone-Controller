@@ -61,7 +61,7 @@ namespace DroneController
 
     public DroneSession(ref string droneIP, ref int dronePort)
     {
-      droneDroneUdpClient = new DroneUDPClient(ref droneIP, ref dronePort);
+      droneDroneUdpClient = new DroneUDPClient();
 
       addMission(ref rotateMission);
       addMission(ref leftRightMission);

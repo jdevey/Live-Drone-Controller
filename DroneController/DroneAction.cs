@@ -4,6 +4,6 @@
   {
     protected string stringRep { get; set; }
 
-    //public abstract void execute(ref DroneUDPClient droneUdpClient);
+    public abstract void execute(ref DroneUDPClient droneUdpClient);
   }
 }

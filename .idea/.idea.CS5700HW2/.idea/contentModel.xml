@@ -18,28 +18,51 @@
         <e p="Flyer.cs" t="Include" />
         <e p="Maneuver.cs" t="Include" />
         <e p="Mission.cs" t="Include" />
-        <e p="NewUDP.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="SleepAction.cs" t="Include" />
         <e p="UDPBase.cs" t="Include" />
-        <e p="UDPComm.cs" t="Include" />
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Shared" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="DroneState.cs" t="Include" />
         <e p="Message.cs" t="Include" />
-        <e p="MessageConstants.cs" t="Include" />
+        <e p="MessageFactory.cs" t="Include" />
+        <e p="MessageTypes" t="Include">
+          <e p="Command.cs" t="Include" />
+          <e p="ManeuverBase.cs" t="Include" />
+          <e p="Maneuvers" t="Include">
+            <e p="Curve.cs" t="Include" />
+            <e p="DirectionalMove.cs" t="Include" />
+            <e p="Flip.cs" t="Include" />
+            <e p="Go.cs" t="Include" />
+            <e p="Jump.cs" t="Include" />
+            <e p="Land.cs" t="Include" />
+            <e p="Rotate.cs" t="Include" />
+            <e p="Takeoff.cs" t="Include" />
+          </e>
+          <e p="Queries" t="Include">
+            <e p="BatteryQuery.cs" t="Include" />
+            <e p="SpeedQuery.cs" t="Include" />
+            <e p="TimeQuery.cs" t="Include" />
+          </e>
+          <e p="QueryBase.cs" t="Include" />
+          <e p="ResponseBase.cs" t="Include" />
+          <e p="Responses" t="Include">
+            <e p="DataResponse.cs" t="Include" />
+            <e p="Error.cs" t="Include" />
+            <e p="Ok.cs" t="Include" />
+          </e>
+          <e p="Status.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
-        <e p="setupAction.cs" t="Include" />
         <e p="Shared.csproj" t="IncludeRecursive" />
-        <e p="Status.cs" t="Include" />
       </e>
       <e p="Simulator" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
