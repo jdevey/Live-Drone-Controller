@@ -24,7 +24,6 @@ namespace DroneController
 
 		public Maneuver(string messageText) : base(messageText)
 		{
-			// base(messageText);
 			//this.messageText = messageText;
 		}
 
@@ -43,15 +42,15 @@ namespace DroneController
 //			return "maneuver";
 //		}
 
-		public override void execute(ref DroneUDPClient droneUdpClient)
-		{
-			Console.WriteLine("Now executing \"" + getMessageText() + "\" command.");
-			droneUdpClient.sendMessage(getMessageText());
-			string response = droneUdpClient.getResponse();
-			if (response != "ok")
-			{
-				droneUdpClient.setErrorState(true);
-			}
-		}
+//		public override void execute(ref DroneUDPClient droneUdpClient)
+//		{
+//			Console.WriteLine("Now executing \"" + getMessageText() + "\" command.");
+//			droneUdpClient.sendMessage(getMessageText());
+//			string response = droneUdpClient.getResponse();
+//			if (response != "ok")
+//			{
+//				droneUdpClient.setErrorState(true);
+//			}
+//		}
 	}
 }

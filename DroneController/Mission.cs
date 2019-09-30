@@ -11,12 +11,12 @@ namespace DroneController
       actionList = actionList_;
     }
 
-    public void execute(ref DroneUDPClient droneUdpClient)
-    {
-      foreach (DroneAction droneAction in actionList)
-      {
-        droneAction.execute(ref droneUdpClient);
-      }
-    }
+//    public void execute(ref DroneUDPClient droneUdpClient)
+//    {
+//      foreach (DroneAction droneAction in actionList)
+//      {
+//        droneAction.execute(ref droneUdpClient);
+//      }
+//    }
   }
 }

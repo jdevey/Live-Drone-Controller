@@ -38,11 +38,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DroneAction.cs" />
     <Compile Include="DroneSession.cs" />
+    <Compile Include="DroneUDPClient.cs" />
     <Compile Include="Flyer.cs" />
+    <Compile Include="Maneuver.cs" />
     <Compile Include="Mission.cs" />
-    <Compile Include="MyUDP.cs" />
+    <Compile Include="NewUDP.cs" />
+    <Compile Include="SleepAction.cs" />
+    <Compile Include="UDPBase.cs" />
+    <Compile Include="UDPComm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{da08fe3e-5a21-4861-8006-709a0b8238ec}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

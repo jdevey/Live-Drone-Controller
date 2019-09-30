@@ -36,10 +36,10 @@ namespace DroneController
     //  set => m_stringRep = value;
     //}
 
-    public override void execute(ref DroneUDPClient droneUdpClient)
-    {
-      Console.WriteLine("Now executing \"" + stringRep + "\" command.");
-      Thread.Sleep(sleepTime);
-    }
+//    public override void execute(ref DroneUDPClient droneUdpClient)
+//    {
+//      Console.WriteLine("Now executing \"" + stringRep + "\" command.");
+//      Thread.Sleep(sleepTime);
+//    }
   }
 }

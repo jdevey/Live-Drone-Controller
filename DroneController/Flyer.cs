@@ -9,8 +9,8 @@ namespace DroneController
 			string ip = "127.0.0.1";
 			int remotePort = 8889;
 			int localPort = 8890;
-			MyUDP home = new MyUDP(ip, remotePort, localPort, true);
-			MyUDP remote = new MyUDP(ip, localPort, remotePort, false);
+			DroneComm home = new DroneComm(ip, remotePort, localPort, true);
+			DroneComm remote = new DroneComm(ip, localPort, remotePort, false);
 			
 			remote.start();
 			

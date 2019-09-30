@@ -37,9 +37,6 @@ namespace Shared
     public bool isInCommandMode() { return inCommandMode; }
 
     public void setInCommandMode(bool inCommandMode) {
-        if (this.inCommandMode == inCommandMode)
-            return;
-
         this.inCommandMode = inCommandMode;
         if (!inCommandMode)
             resetState();
@@ -106,7 +103,7 @@ namespace Shared
     
     private static double toRadians(double angle)
     {
-        return (Math.PI / 180) * angle;
+        return Math.PI / 180 * angle;
     }
 
     public void move(double deltaX, double deltaY, double deltaZ) {

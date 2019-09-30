@@ -27,28 +27,28 @@ namespace Shared
 			"mid"
 		};
 
-		public Status(int pitch, int roll, int yaw, int speedX, int speedY, int speedZ,
-			int lowTemperature, int highTemperature, int flightDistance, int height,
-			int batteryPercentage, double barometerMeasurement, int motorTime,
-			double accelerationX, double accelerationY, double accelerationZ)
-		{
-			this.pitch = pitch;
-			this.roll = roll;
-			this.yaw = yaw;
-			this.speedX = speedX;
-			this.speedY = speedY;
-			this.speedZ = speedZ;
-			this.lowTemperature = lowTemperature;
-			this.highTemperature = highTemperature;
-			this.flightDistance = flightDistance;
-			this.height = height;
-			this.batteryPercentage = batteryPercentage;
-			this.barometerMeasurement = barometerMeasurement;
-			this.motorTime = motorTime;
-			this.accelerationX = accelerationX;
-			this.accelerationY = accelerationY;
-			this.accelerationZ = accelerationZ;
-		}
+//		public Status(int pitch, int roll, int yaw, int speedX, int speedY, int speedZ,
+//			int lowTemperature, int highTemperature, int flightDistance, int height,
+//			int batteryPercentage, double barometerMeasurement, int motorTime,
+//			double accelerationX, double accelerationY, double accelerationZ)
+//		{
+//			this.pitch = pitch;
+//			this.roll = roll;
+//			this.yaw = yaw;
+//			this.speedX = speedX;
+//			this.speedY = speedY;
+//			this.speedZ = speedZ;
+//			this.lowTemperature = lowTemperature;
+//			this.highTemperature = highTemperature;
+//			this.flightDistance = flightDistance;
+//			this.height = height;
+//			this.batteryPercentage = batteryPercentage;
+//			this.barometerMeasurement = barometerMeasurement;
+//			this.motorTime = motorTime;
+//			this.accelerationX = accelerationX;
+//			this.accelerationY = accelerationY;
+//			this.accelerationZ = accelerationZ;
+//		}
 
 		public Status(string data) : base(data)
 		{

@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace DroneController
 {
-	public class MyUDP
+	public class DroneComm
 	{
 		private readonly HashSet<string> validCommands = new HashSet<string>()
 		{
@@ -40,7 +40,7 @@ namespace DroneController
 
 		private readonly Thread threadLoop;
 
-		public MyUDP(string Ip_, int remotePort_, int localPort_, bool isHome_)
+		public DroneComm(string Ip_, int remotePort_, int localPort_, bool isHome_)
 		{
 			this.Ip = Ip_;
 			this.remotePort = remotePort_;
