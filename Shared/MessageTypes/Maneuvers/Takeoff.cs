@@ -10,5 +10,13 @@
 		{
 			return "takeoff";
 		}
+		
+		public override void updateState(DroneState state)
+		{
+			state.setHasTakenOff(true);
+			
+			// Drone flys up approximately one meter upon takeoff
+			state.move(0, 100, 0);
+		}
 	}
 }

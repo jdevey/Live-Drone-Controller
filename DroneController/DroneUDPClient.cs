@@ -10,17 +10,17 @@ namespace DroneController
 	{
 		private const string LOCALHOST = "127.0.0.1";
 		private const string METAHOST = "0.0.0.0";
-		
+
 		protected readonly string droneIp;
-		
+
 		protected readonly int localPort;
 		protected readonly int commandPort;
 		protected readonly int telloStatePort;
-		
+
 		private IPEndPoint localIpEndPoint;
 		private IPEndPoint commandIpEndPoint;
 		private IPEndPoint telloStateIpEndPoint;
-		
+
 		private readonly UdpClient droneUDPClient;
 		private readonly UdpClient stateReceiver;
 
@@ -30,7 +30,7 @@ namespace DroneController
 		private bool isInErrorState;
 
 		public DroneUDPClient(string droneIp = "127.0.0.1", int localPort = 8891,
-		int commandPort = 8889, int telloStatePort = 8890, int timeout = 3000, uint maxRetries = 3)
+				int commandPort = 8889, int telloStatePort = 8890, int timeout = 3000, uint maxRetries = 3)
 			// TODO implement max retries and customizable timeouts
 		{
 			this.droneIp = droneIp;
@@ -44,12 +44,12 @@ namespace DroneController
 				localIpEndPoint = new IPEndPoint(IPAddress.Parse(LOCALHOST), localPort);
 				commandIpEndPoint = new IPEndPoint(IPAddress.Parse(droneIp), commandPort);
 				telloStateIpEndPoint = new IPEndPoint(IPAddress.Parse(LOCALHOST), telloStatePort);
-				
+
 				droneUDPClient = new UdpClient(localIpEndPoint)
 					{Client = {SendTimeout = timeout, ReceiveTimeout = timeout}};
-				droneUDPClient.Client.SetSocketOption(
-					SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-				
+//				droneUDPClient.Client.SetSocketOption(
+//					SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
+
 				stateReceiver = new UdpClient(telloStateIpEndPoint)
 					{Client = {SendTimeout = timeout, ReceiveTimeout = timeout}};
 
@@ -61,7 +61,7 @@ namespace DroneController
 				Console.WriteLine(e);
 				setErrorState(true);
 			}
-			
+
 			thread = new Thread(stateLoop);
 		}
 

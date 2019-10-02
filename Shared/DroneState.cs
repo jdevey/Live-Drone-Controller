@@ -6,233 +6,284 @@ namespace Shared
 	public class DroneState
 	{
 		private bool inCommandMode;
-    private bool takenOff;
-    private bool videoStreamOn;
-    private DateTime stateTimestamp;
-    private double currentFlightTime;
-    private double positionX;
-    private double positionY;
-    private double positionZ;
-    private int pitch;
-    private int roll;
-    private int yaw;
-    private int speedX;
-    private int speedY;
-    private int speedZ;
-    private int lowTemperature;
-    private int highTemperature;
-    private int flightDistance;
-    private int height;
-    private int batteryPercentage;
-    private double barometerMeasurement;
-    private int motorTime;
-    private double accelerationX;
-    private double accelerationY;
-    private double accelerationZ;
-    private int orientation;
+		private bool takenOff;
+		private bool videoStreamOn;
+		private DateTime stateTimestamp;
+		private double currentFlightTime; // TODO update flight time every 100ms
+		private double positionX; // Left and right
+		private double positionY; // Forward and backward
+		private double positionZ; // Up and down
+		private int pitch;
+		private int roll;
+		private int yaw;
+		private int speedX;
+		private int speedY;
+		private int speedZ;
+		private int lowTemperature;
+		private int highTemperature;
+		private int flightDistance;
+		private int height;
+		private int batteryPercentage;
+		private double barometerMeasurement;
+		private int motorTime;
+		private double accelerationX;
+		private double accelerationY;
+		private double accelerationZ;
+		private int orientation;
 
-    public DroneState() {
-        resetState();
-    }
+		public DroneState()
+		{
+			resetState();
+		}
 
-    public bool isInCommandMode() { return inCommandMode; }
+		public bool isInCommandMode()
+		{
+			return inCommandMode;
+		}
 
-    public void setInCommandMode(bool inCommandMode) {
-        this.inCommandMode = inCommandMode;
-        if (!inCommandMode)
-            resetState();
-    }
+		public void setInCommandMode(bool inCommandMode)
+		{
+			this.inCommandMode = inCommandMode;
+			if (!inCommandMode)
+				resetState();
+		}
 
-    public bool hasTakenOff() {
-        return takenOff;
-    }
+		public bool hasTakenOff()
+		{
+			return takenOff;
+		}
 
-    public void setHasTakenOff(bool takenOff) {
-        if (this.takenOff == takenOff)
-            return;
+		public void setHasTakenOff(bool takenOff)
+		{
+			if (this.takenOff == takenOff)
+				return;
 
-        this.takenOff = inCommandMode && takenOff;
-        if (!this.takenOff)
-            resetFlyingInfo();
-    }
+			this.takenOff = inCommandMode && takenOff;
+			if (!this.takenOff)
+				resetFlyingInfo();
+		}
 
-    public bool isVideoStreamOn() { return videoStreamOn; }
+		public bool isVideoStreamOn()
+		{
+			return videoStreamOn;
+		}
 
-    public void setVideoStreamOn(bool videoStreamOn)
-    {
-        this.videoStreamOn = inCommandMode && videoStreamOn;
-    }
+		public void setVideoStreamOn(bool videoStreamOn)
+		{
+			this.videoStreamOn = inCommandMode && videoStreamOn;
+		}
 
-    public double getCurrentFlightTime() {
-        return currentFlightTime;
-    }
+		public double getCurrentFlightTime()
+		{
+			return currentFlightTime;
+		}
 
-    public void setCurrentFlightTime(double currentFlightTime) {
-        if (inCommandMode) {
-            this.currentFlightTime = currentFlightTime;
-        }
-    }
+		public void setCurrentFlightTime(double currentFlightTime)
+		{
+			if (inCommandMode)
+			{
+				this.currentFlightTime = currentFlightTime;
+			}
+		}
 
-    public void updateFlyingInfo(Status status) {
-        if (!inCommandMode || status==null) {
-            return;
-        }
+		public void updateFlyingInfo(Status status)
+		{
+			if (!inCommandMode || status == null)
+			{
+				return;
+			}
 
-        pitch = status.getPitch();
-        roll = status.getRoll();
-        yaw = status.getYaw();
-        speedX = status.getSpeedX();
-        speedY = status.getSpeedY();
-        speedZ = status.getSpeedZ();
-        lowTemperature = status.getLowTemperature();
-        highTemperature = status.getHighTemperature();
-        flightDistance = status.getFlightDistance();
-        height = status.getHeight();
-        batteryPercentage = status.getBatteryPercentage();
-        barometerMeasurement = status.getBarometerMeasurement();
-        motorTime = status.getMotorTime();
-        accelerationX = status.getAccelerationX();
-        accelerationY = status.getAccelerationY();
-        accelerationZ = status.getAccelerationZ();
+			pitch = status.getPitch();
+			roll = status.getRoll();
+			yaw = status.getYaw();
+			speedX = status.getSpeedX();
+			speedY = status.getSpeedY();
+			speedZ = status.getSpeedZ();
+			lowTemperature = status.getLowTemperature();
+			highTemperature = status.getHighTemperature();
+			flightDistance = status.getFlightDistance();
+			height = status.getHeight();
+			batteryPercentage = status.getBatteryPercentage();
+			barometerMeasurement = status.getBarometerMeasurement();
+			motorTime = status.getMotorTime();
+			accelerationX = status.getAccelerationX();
+			accelerationY = status.getAccelerationY();
+			accelerationZ = status.getAccelerationZ();
 
-        stateTimestamp = new DateTime();
-    }
+			// stateTimestamp = new DateTime();
+		}
 
-    public DateTime getStateTimestamp() {
-        return stateTimestamp;
-    }
-    
-    private static double toRadians(double angle)
-    {
-        return Math.PI / 180 * angle;
-    }
+		public DateTime getStateTimestamp()
+		{
+			return stateTimestamp;
+		}
 
-    public void move(double deltaX, double deltaY, double deltaZ) {
-        if (!takenOff) return;
+		private static double toRadians(double angle)
+		{
+			return Math.PI / 180 * angle;
+		}
+		
+		public void move(double deltaX, double deltaY, double deltaZ)
+		{
+			if (!takenOff) return;
 
-        double rotation = toRadians(-orientation);
-        double rotatedX = Math.Cos(rotation) * deltaX - Math.Sin(rotation) * deltaY;
-        double rotatedY = Math.Sin(rotation) * deltaX + Math.Cos(rotation) * deltaY;
+			double rotation = toRadians(-orientation);
+			double rotatedX = Math.Cos(rotation) * deltaX - Math.Sin(rotation) * deltaY;
+			double rotatedY = Math.Sin(rotation) * deltaX + Math.Cos(rotation) * deltaY;
 
-        positionX += rotatedX;
-        positionY += rotatedY;
-        positionZ += deltaZ;
-    }
+			positionX += rotatedX;
+			positionY += rotatedY;
+			positionZ += deltaZ;
+		}
 
-    public void rotate(int deltaOrientation) {
-        if (!takenOff) return;
+		public void travelTo(double x, double y, double z)
+		{
+			if (!takenOff) return;
 
-        orientation += deltaOrientation;
-        orientation = orientation % 360;
-    }
+			positionX = x;
+			positionY = y;
+			positionZ = z;
+		}
 
-    public double getPositionX() {
-        return positionX;
-    }
+		public void rotate(int deltaOrientation)
+		{
+			if (!takenOff) return;
 
-    public double getPositionY() {
-        return positionY;
-    }
+			orientation += deltaOrientation + 360;
+			orientation %= 360;
+		}
 
-    public double getPositionZ() {
-        return positionZ;
-    }
+		public double getPositionX()
+		{
+			return positionX;
+		}
 
-    public int getPitch() {
-        return pitch;
-    }
+		public double getPositionY()
+		{
+			return positionY;
+		}
 
-    public int getRoll() {
-        return roll;
-    }
+		public double getPositionZ()
+		{
+			return positionZ;
+		}
 
-    public int getYaw() {
-        return yaw;
-    }
+		public int getPitch()
+		{
+			return pitch;
+		}
 
-    public int getSpeedX() {
-        return speedX;
-    }
+		public int getRoll()
+		{
+			return roll;
+		}
 
-    public int getSpeedY() {
-        return speedY;
-    }
+		public int getYaw()
+		{
+			return yaw;
+		}
 
-    public int getSpeedZ() {
-        return speedZ;
-    }
+		public int getSpeedX()
+		{
+			return speedX;
+		}
 
-    public double getAccelerationX() {
-        return accelerationX;
-    }
+		public int getSpeedY()
+		{
+			return speedY;
+		}
 
-    public double getAccelerationY() {
-        return accelerationY;
-    }
+		public int getSpeedZ()
+		{
+			return speedZ;
+		}
 
-    public double getAccelerationZ() {
-        return accelerationZ;
-    }
+		public double getAccelerationX()
+		{
+			return accelerationX;
+		}
 
-    public int getLowTemperature() {
-        return lowTemperature;
-    }
+		public double getAccelerationY()
+		{
+			return accelerationY;
+		}
 
-    public int getHighTemperature() {
-        return highTemperature;
-    }
+		public double getAccelerationZ()
+		{
+			return accelerationZ;
+		}
 
-    public int getFlightDistance() {
-        return flightDistance;
-    }
+		public int getLowTemperature()
+		{
+			return lowTemperature;
+		}
 
-    public int getHeight() {
-        return height;
-    }
+		public int getHighTemperature()
+		{
+			return highTemperature;
+		}
 
-    public int getBatteryPercentage() {
-        return batteryPercentage;
-    }
+		public int getFlightDistance()
+		{
+			return flightDistance;
+		}
 
-    public double getBarometerMeasurement() {
-        return barometerMeasurement;
-    }
+		public int getHeight()
+		{
+			return height;
+		}
 
-    public int getMotorTime() {
-        return motorTime;
-    }
+		public int getBatteryPercentage()
+		{
+			return batteryPercentage;
+		}
 
-    public int getOrientation() { return orientation; }
+		public double getBarometerMeasurement()
+		{
+			return barometerMeasurement;
+		}
 
-    private void resetState() {
-        videoStreamOn = false;
-        takenOff = false;
-        stateTimestamp = new DateTime();
-        resetFlyingInfo();
-    }
+		public int getMotorTime()
+		{
+			return motorTime;
+		}
 
-    private void resetFlyingInfo() {
-        currentFlightTime = 0.0;
-        positionX = 0.0;
-        positionY = 0.0;
-        positionZ = 0.0;
-        pitch = 0;
-        roll = 0;
-        yaw = 0;
-        speedX = 0;
-        speedY = 0;
-        speedZ = 0;
-        lowTemperature = 0;
-        highTemperature = 0;
-        flightDistance = 0;
-        height = 0;
-        batteryPercentage = 0;
-        barometerMeasurement = 0.0;
-        motorTime = 0;
-        accelerationX = 0.0;
-        accelerationY = 0.0;
-        accelerationZ = 0.0;
-        orientation = 0;
-    }
+		public int getOrientation()
+		{
+			return orientation;
+		}
+
+		private void resetState()
+		{
+			videoStreamOn = false;
+			takenOff = false;
+			stateTimestamp = new DateTime();
+			resetFlyingInfo();
+		}
+
+		private void resetFlyingInfo()
+		{
+			currentFlightTime = 0.0;
+			positionX = 0.0;
+			positionY = 0.0;
+			positionZ = 0.0;
+			pitch = 0;
+			roll = 0;
+			yaw = 0;
+			speedX = 0;
+			speedY = 0;
+			speedZ = 0;
+			lowTemperature = 0;
+			highTemperature = 0;
+			flightDistance = 0;
+			height = 0;
+			batteryPercentage = 0;
+			barometerMeasurement = 0.0;
+			motorTime = 0;
+			accelerationX = 0.0;
+			accelerationY = 0.0;
+			accelerationZ = 0.0;
+			orientation = 0;
+		}
 	}
 }

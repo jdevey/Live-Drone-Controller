@@ -27,24 +27,25 @@ namespace Shared.MessageTypes
 //			int lowTemperature, int highTemperature, int flightDistance, int height,
 //			int batteryPercentage, double barometerMeasurement, int motorTime,
 //			double accelerationX, double accelerationY, double accelerationZ)
-//		{
-//			this.pitch = pitch;
-//			this.roll = roll;
-//			this.yaw = yaw;
-//			this.speedX = speedX;
-//			this.speedY = speedY;
-//			this.speedZ = speedZ;
-//			this.lowTemperature = lowTemperature;
-//			this.highTemperature = highTemperature;
-//			this.flightDistance = flightDistance;
-//			this.height = height;
-//			this.batteryPercentage = batteryPercentage;
-//			this.barometerMeasurement = barometerMeasurement;
-//			this.motorTime = motorTime;
-//			this.accelerationX = accelerationX;
-//			this.accelerationY = accelerationY;
-//			this.accelerationZ = accelerationZ;
-//		}
+public Status(DroneState state) : base(getMessageTextFromState(state))
+		{
+			pitch = state.getPitch();
+			roll = state.getRoll();
+			yaw = state.getYaw();
+			speedX = state.getSpeedX();
+			speedY = state.getSpeedY();
+			speedZ = state.getSpeedZ();
+			lowTemperature = state.getLowTemperature();
+			highTemperature = state.getHighTemperature();
+			flightDistance = state.getFlightDistance();
+			height = state.getHeight();
+			batteryPercentage = state.getBatteryPercentage();
+			barometerMeasurement = state.getBarometerMeasurement();
+			motorTime = state.getMotorTime();
+			accelerationX = state.getAccelerationX();
+			accelerationY = state.getAccelerationY();
+			accelerationZ = state.getAccelerationZ();
+		}
 
 		public Status(string data) : base(data)
 		{
@@ -56,7 +57,10 @@ namespace Shared.MessageTypes
 			return "mid";
 		}
 
-		public string getMessageText()
+		public static string formatStringForMessage(int pitch, int roll, int yaw, int speedX,
+			int speedY, int speedZ, int lowTemperature, int highTemperature, int flightDistance,
+			int height, int batteryPercentage, double barometerMeasurement, int motorTime,
+			double accelerationX, double accelerationY, double accelerationZ)
 		{
 			return string.Format("mid:-1;x:0;y:0;z:0;mpry:0,0,0;pitch:{0};roll:{1};yaw:{2};" +
 			                     "vgx:{3};vgy:{4};vgz:{5};" +
@@ -72,6 +76,32 @@ namespace Shared.MessageTypes
 				batteryPercentage, barometerMeasurement,
 				motorTime,
 				accelerationX, accelerationY, accelerationZ);
+		}
+
+		public static string getMessageTextFromState(DroneState state)
+		{
+			return formatStringForMessage(
+				state.getPitch(), state.getRoll(), state.getYaw(),
+				state.getSpeedX(), state.getSpeedY(), state.getSpeedZ(),
+				state.getLowTemperature(), state.getHighTemperature(),
+				state.getFlightDistance(), state.getHeight(),
+				state.getBatteryPercentage(), state.getBarometerMeasurement(),
+				state.getMotorTime(), state.getAccelerationX(),
+				state.getAccelerationY(), state.getAccelerationZ()
+			);
+		}
+
+		public string getMessageText()
+		{
+			return formatStringForMessage(
+				pitch, roll, yaw,
+				speedX, speedY, speedZ,
+				lowTemperature, highTemperature,
+				flightDistance, height,
+				batteryPercentage, barometerMeasurement,
+				motorTime,
+				accelerationX, accelerationY, accelerationZ
+			);
 		}
 
 //		public override string getMessageType()
@@ -201,7 +231,8 @@ namespace Shared.MessageTypes
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Failed to parse to integer in Status class.");
+				Console.WriteLine("ERROR: Failed to parse to integer in Status class.");
+				Console.WriteLine(e.Message);
 			}
 
 			return result;
@@ -220,7 +251,8 @@ namespace Shared.MessageTypes
 			}
 			catch (Exception e)
 			{
-				Console.WriteLine("Failed to parse to double in Status class.");
+				Console.WriteLine("ERROR: Failed to parse to double in Status class.");
+				Console.WriteLine(e.Message);
 			}
 
 			return result;
@@ -231,7 +263,7 @@ namespace Shared.MessageTypes
 			if (String.IsNullOrEmpty(expectedLabel) || String.IsNullOrEmpty(data))
 				return null;
 
-			string[] parts = data.Split(':'); // TODO check that colon is correct
+			string[] parts = data.Split(':');
 			if (parts.Length != 2)
 				return null;
 
