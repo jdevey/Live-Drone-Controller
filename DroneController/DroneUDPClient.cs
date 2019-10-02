@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using Shared;
 
 namespace DroneController
 {
@@ -23,6 +24,8 @@ namespace DroneController
 
 		private readonly UdpClient droneUDPClient;
 		private readonly UdpClient stateReceiver;
+
+		private bool controllerRunning = true;
 
 		private Thread thread;
 
@@ -88,7 +91,9 @@ namespace DroneController
 							setErrorState(true);
 						}
 
-						return Encoding.UTF8.GetString(receiveBytes);
+						string resp = Utils.decodeBytes(receiveBytes);
+						Console.WriteLine("Hell yeah brothas " + resp);
+						return resp;
 					}
 				}
 				catch (Exception e)
@@ -105,11 +110,11 @@ namespace DroneController
 
 		public void stateLoop()
 		{
-			while (true)
+			while (controllerRunning)
 			{
 				byte[] receiveBytes = stateReceiver.Receive(ref commandIpEndPoint);
 				string msg = Encoding.UTF8.GetString(receiveBytes);
-				Console.WriteLine(msg);
+				// Console.WriteLine(msg);
 			}
 		}
 
@@ -131,6 +136,13 @@ namespace DroneController
 				                  ":" + commandPort + ".");
 				setErrorState(true);
 			}
+		}
+
+		public void stop()
+		{
+			controllerRunning = false;
+			// thread.Abort();
+			thread.Join();
 		}
 
 		public void setErrorState(bool errorState)

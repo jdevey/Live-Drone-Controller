@@ -1,5 +1,6 @@
 ﻿﻿﻿using System;
  using System.Collections.Generic;
+  using Simulator;
 
  namespace DroneController
 {
@@ -23,6 +24,9 @@
       for (int i = 2; i < args.Length; ++i)
         desiredMissions.Add(int.Parse(args[i]));
 
+      Simulator.Simulator simulator = new Simulator.Simulator();
+      simulator.start();
+
       DroneSession droneSession = new DroneSession(ref droneIP, ref dronePort);
 
       foreach (int desiredMission in desiredMissions)
@@ -31,6 +35,11 @@
         droneSession.executeMission(desiredMission);
         Console.WriteLine();
       }
+
+      droneSession.getUDPClient().stop();
+      simulator.stop();
+      
+      Console.WriteLine("I'm at the end");
     }
   }
 }

@@ -16,7 +16,7 @@ namespace Shared
 		{
 			for (int i = 0; i < text.Length; ++i)
 			{
-				if (!Char.IsLetter(text[i]))
+				if (!(Char.IsLetter(text[i])))
 				{
 					return text.Substring(0, i);
 				}
@@ -66,18 +66,6 @@ namespace Shared
 			else
 				message = new DataResponse(text);
 			
-			// TODO make these constructors more complete
-			
-
-//				if (Maneuver.getKeyword().Any(keyword => data.StartsWith(keyword)))
-//				{
-//					string[] words = data.Split(' ');
-//					List<string> args = splitArgs(words);
-//					//message = new Maneuver(words[0], args);
-//				}
-
-			// TODO: decode all of the other kinds of messages based on what the message starts with.  If it doesn't
-			//       start with a recognized key word, assume it is an info message (i.e., a reply to a query)
 			return message;
 		}
 	}

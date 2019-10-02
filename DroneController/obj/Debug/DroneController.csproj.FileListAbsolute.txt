@@ -4,3 +4,8 @@ C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\obj\Debug\DroneC
 C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\obj\Debug\DroneController.csproj.CoreCompileInputs.cache
 C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\obj\Debug\DroneController.exe
 C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\obj\Debug\DroneController.pdb
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\bin\Debug\Shared.dll
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\bin\Debug\Simulator.dll
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\bin\Debug\Shared.pdb
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\bin\Debug\Simulator.pdb
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\DroneController\obj\Debug\DroneController.csproj.CopyComplete

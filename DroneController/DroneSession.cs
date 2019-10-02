@@ -6,7 +6,7 @@ namespace DroneController
   public class DroneSession
   {
     private const string START_MISSION_SLEEP_TIME = "200";
-    private const string DEFAULT_SLEEP_TIME = "3000";
+    private const string DEFAULT_SLEEP_TIME = "1000";
 
     private static string[] rotateMission =
     {

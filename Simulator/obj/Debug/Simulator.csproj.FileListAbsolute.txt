@@ -1,0 +1,9 @@
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Simulator\bin\Debug\Simulator.dll
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Simulator\bin\Debug\Simulator.pdb
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Simulator\bin\Debug\Shared.dll
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Simulator\bin\Debug\Shared.pdb
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Simulator\obj\Debug\Simulator.csprojAssemblyReference.cache
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Simulator\obj\Debug\Simulator.csproj.CoreCompileInputs.cache
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Simulator\obj\Debug\Simulator.csproj.CopyComplete
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Simulator\obj\Debug\Simulator.dll
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Simulator\obj\Debug\Simulator.pdb

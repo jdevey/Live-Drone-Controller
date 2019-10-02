@@ -61,7 +61,7 @@ namespace DroneController
 					{
 						if (Encoding.UTF8.GetString(receiveBytes) == "error")
 						{
-							Console.WriteLine("ERROR: Drone has encountered an error state.");
+							Console.WriteLine("ERROR: UDP base has encountered an error state.");
 							setErrorState(true);
 						}
 

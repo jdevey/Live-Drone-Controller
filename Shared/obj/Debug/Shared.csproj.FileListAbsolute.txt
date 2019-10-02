@@ -1,0 +1,6 @@
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Shared\bin\Debug\Shared.dll
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Shared\bin\Debug\Shared.pdb
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Shared\obj\Debug\Shared.csprojAssemblyReference.cache
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Shared\obj\Debug\Shared.csproj.CoreCompileInputs.cache
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Shared\obj\Debug\Shared.dll
+C:\Users\devey\Code\School\CS5700\hw2\CS5700HW2\Shared\obj\Debug\Shared.pdb
