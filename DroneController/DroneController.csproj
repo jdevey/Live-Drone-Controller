@@ -46,7 +46,7 @@
     <Compile Include="Mission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SleepAction.cs" />
-    <Compile Include="UDPBase.cs" />
+    <Compile Include="OldUDPBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Shared\Shared.csproj">

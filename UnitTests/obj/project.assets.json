@@ -1649,7 +1649,8 @@
       "DroneController/1.0.0": {
         "type": "project",
         "dependencies": {
-          "Shared": "1.0.0"
+          "Shared": "1.0.0",
+          "Simulator": "1.0.0"
         },
         "compile": {
           "bin/placeholder/DroneController.dll": {}
@@ -1665,6 +1666,18 @@
         },
         "runtime": {
           "bin/placeholder/Shared.dll": {}
+        }
+      },
+      "Simulator/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Simulator.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Simulator.dll": {}
         }
       }
     }
@@ -5774,6 +5787,11 @@
       "type": "project",
       "path": "../Shared/Shared.csproj",
       "msbuildProject": "../Shared/Shared.csproj"
+    },
+    "Simulator/1.0.0": {
+      "type": "project",
+      "path": "../Simulator/Simulator.csproj",
+      "msbuildProject": "../Simulator/Simulator.csproj"
     }
   },
   "projectFileDependencyGroups": {

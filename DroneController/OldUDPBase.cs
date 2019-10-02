@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DroneController
 {
-	public abstract class UDPBase
+	public abstract class OldUDPBase
 	{
 		protected readonly string droneIP;
 		protected readonly int dronePort;
@@ -15,7 +15,7 @@ namespace DroneController
 
 		private bool isInErrorState;
 
-		public UDPBase(ref string droneIP_, ref int dronePort_)
+		public OldUDPBase(ref string droneIP_, ref int dronePort_)
 		{
 			droneIP = droneIP_;
 			dronePort = dronePort_;

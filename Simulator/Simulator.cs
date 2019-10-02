@@ -15,10 +15,9 @@ namespace Simulator
 	{
 		private const int SLEEP_TIME_MS = 100;
 
-		private const string LOCALHOST = "127.0.0.1";
-		private const string METAHOST = "0.0.0.0";
+		private SimulatorComm simulatorComm;
 
-		protected readonly string remoteIp;
+		private const string LOCALHOST = "127.0.0.1";
 
 		protected readonly int commandPort;
 		protected readonly int telloStatePort;
@@ -38,12 +37,15 @@ namespace Simulator
 		private readonly uint maxRetries;
 		private bool isInErrorState;
 
-		public Simulator(string remoteIp = "127.0.0.1", int commandPort = 8889,
-			int telloStatePort = 8890, int timeout = 3000, uint maxRetries = 3)
+		public Simulator(int commandPort = DefaultConstants.DEFAULT_COMMAND_PORT,
+			int telloStatePort = DefaultConstants.DEFAULT_TELLO_STATE_PORT,
+			int timeout = DefaultConstants.DEFAULT_TIMEOUT,
+			uint maxRetries = DefaultConstants.DEFAULT_MAX_RETRIES)
 		{
 			state = new DroneState();
 
-			this.remoteIp = remoteIp;
+			simulatorComm = new SimulatorComm(commandPort, telloStatePort, timeout, maxRetries);
+			
 			this.commandPort = commandPort;
 			this.telloStatePort = telloStatePort;
 			this.maxRetries = maxRetries;

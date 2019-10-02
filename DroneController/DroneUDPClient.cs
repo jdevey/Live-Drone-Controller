@@ -10,7 +10,6 @@ namespace DroneController
 	public class DroneUDPClient
 	{
 		private const string LOCALHOST = "127.0.0.1";
-		private const string METAHOST = "0.0.0.0";
 
 		protected readonly string droneIp;
 
@@ -50,13 +49,9 @@ namespace DroneController
 
 				droneUDPClient = new UdpClient(localIpEndPoint)
 					{Client = {SendTimeout = timeout, ReceiveTimeout = timeout}};
-//				droneUDPClient.Client.SetSocketOption(
-//					SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
 
 				stateReceiver = new UdpClient(telloStateIpEndPoint)
 					{Client = {SendTimeout = timeout, ReceiveTimeout = timeout}};
-
-				// droneUDPClient.Connect(droneIp, commandPort); // Don't connect since we'll be listening/sending to many ports
 			}
 			catch (Exception e)
 			{
