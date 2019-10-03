@@ -45,19 +45,19 @@ namespace Simulator
 			}
 		}
 
-		public IPEndPoint getLocalIpEndPoint()
+		public ref IPEndPoint getLocalIpEndPoint()
 		{
-			return localIpEndPoint;
+			return ref localIpEndPoint;
 		}
 
-		public IPEndPoint getCommandIpEndPoint()
+		public ref IPEndPoint getCommandIpEndPoint()
 		{
-			return commandIpEndPoint;
+			return ref commandIpEndPoint;
 		}
 
-		public IPEndPoint getTelloStateIpEndPoint()
+		public ref IPEndPoint getTelloStateIpEndPoint()
 		{
-			return telloStateIpEndPoint;
+			return ref telloStateIpEndPoint;
 		}
 
 		public UdpClient getUdpClient()

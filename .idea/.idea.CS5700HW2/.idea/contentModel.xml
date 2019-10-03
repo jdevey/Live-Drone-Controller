@@ -30,6 +30,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="DefaultConstants.cs" t="Include" />
         <e p="DroneState.cs" t="Include" />
+        <e p="ErrorState.cs" t="Include" />
         <e p="Message.cs" t="Include" />
         <e p="MessageFactory.cs" t="Include" />
         <e p="MessageTypes" t="Include">

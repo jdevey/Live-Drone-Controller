@@ -47,15 +47,15 @@ namespace Shared
 
 		public byte[] encode()
 		{
-			return Encoding.UTF8.GetBytes(getMessageText());
+			return Utils.encodeString(messageText);
 		}
 
 //		public abstract string getMessageType();
 
-		public string getMessageText()
-		{
-			return messageText;
-		}
+//		public string getMessageText()
+//		{
+//			return messageText;
+//		}
 
 		public bool isValid()
 		{

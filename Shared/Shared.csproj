@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="DefaultConstants.cs" />
     <Compile Include="DroneState.cs" />
+    <Compile Include="ErrorState.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="MessageFactory.cs" />
     <Compile Include="MessageTypes\Command.cs" />

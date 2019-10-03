@@ -4,19 +4,13 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using Shared;
+using Shared.MessageTypes;
+using Shared.MessageTypes.Responses;
 
 namespace DroneController
 {
-	public class DroneUDPClient
+	public class DroneUDPClient : UDPCommBase
 	{
-		private const string LOCALHOST = "127.0.0.1";
-
-		protected readonly string droneIp;
-
-		protected readonly int localPort;
-		protected readonly int commandPort;
-		protected readonly int telloStatePort;
-
 		private IPEndPoint localIpEndPoint;
 		private IPEndPoint commandIpEndPoint;
 		private IPEndPoint telloStateIpEndPoint;
@@ -24,28 +18,23 @@ namespace DroneController
 		private readonly UdpClient droneUDPClient;
 		private readonly UdpClient stateReceiver;
 
-		private bool controllerRunning = true;
-
 		private Thread thread;
 
-		private uint maxRetries;
-		private bool isInErrorState;
-
-		public DroneUDPClient(string droneIp = "127.0.0.1", int localPort = 8891,
-				int commandPort = 8889, int telloStatePort = 8890, int timeout = 3000, uint maxRetries = 3)
-			// TODO implement max retries and customizable timeouts
+		public DroneUDPClient(
+			string droneIp = DefaultConstants.DEFAULT_DRONE_IP,
+			int localPort = DefaultConstants.DEFAULT_LOCAL_PORT, 
+			int commandPort = DefaultConstants.DEFAULT_COMMAND_PORT,
+			int telloStatePort = DefaultConstants.DEFAULT_TELLO_STATE_PORT,
+			int timeout = DefaultConstants.DEFAULT_TIMEOUT,
+			uint maxRetries = DefaultConstants.DEFAULT_MAX_RETRIES)
+				: base(droneIp, localPort, commandPort, telloStatePort, timeout, maxRetries)
 		{
-			this.droneIp = droneIp;
-			this.localPort = localPort;
-			this.commandPort = commandPort;
-			this.telloStatePort = telloStatePort;
-			this.maxRetries = maxRetries;
 
 			try
 			{
-				localIpEndPoint = new IPEndPoint(IPAddress.Parse(LOCALHOST), localPort);
+				localIpEndPoint = new IPEndPoint(IPAddress.Parse(DefaultConstants.LOCALHOST), localPort);
 				commandIpEndPoint = new IPEndPoint(IPAddress.Parse(droneIp), commandPort);
-				telloStateIpEndPoint = new IPEndPoint(IPAddress.Parse(LOCALHOST), telloStatePort);
+				telloStateIpEndPoint = new IPEndPoint(IPAddress.Parse(DefaultConstants.LOCALHOST), telloStatePort);
 
 				droneUDPClient = new UdpClient(localIpEndPoint)
 					{Client = {SendTimeout = timeout, ReceiveTimeout = timeout}};
@@ -63,49 +52,48 @@ namespace DroneController
 			thread = new Thread(stateLoop);
 		}
 
-		public void sendMessage(string msg)
-		{
-			byte[] msgBytes = Encoding.UTF8.GetBytes(msg);
-			droneUDPClient.Send(msgBytes, msgBytes.Length, commandIpEndPoint);
-		}
-
-		public string getResponse()
-		{
-			uint numRetries = maxRetries;
-
-			while (numRetries-- > 0)
-			{
-				try
-				{
-					byte[] receiveBytes = droneUDPClient.Receive(ref commandIpEndPoint);
-					if (receiveBytes.Length > 0)
-					{
-						if (Encoding.UTF8.GetString(receiveBytes) == "error")
-						{
-							Console.WriteLine("ERROR: Drone has encountered an error state.");
-							setErrorState(true);
-						}
-
-						string resp = Utils.decodeBytes(receiveBytes);
-						Console.WriteLine("Hell yeah brothas " + resp);
-						return resp;
-					}
-				}
-				catch (Exception e)
-				{
-					Console.WriteLine(e.Message);
-					return "";
-				}
-			}
-
-			Console.WriteLine("ERROR: Timed out. Failed to receive from drone.");
-			setErrorState(true);
-			return "";
-		}
+//		public void sendMessage(string msg)
+//		{
+//			byte[] msgBytes = Encoding.UTF8.GetBytes(msg);
+//			droneUDPClient.Send(msgBytes, msgBytes.Length, commandIpEndPoint);
+//		}
+//
+//		public string getResponse()
+//		{
+//			uint numRetries = retr;
+//
+//			while (numRetries-- > 0)
+//			{
+//				try
+//				{
+//					byte[] receiveBytes = droneUDPClient.Receive(ref commandIpEndPoint);
+//					if (receiveBytes.Length > 0)
+//					{
+//						if (Encoding.UTF8.GetString(receiveBytes) == "error")
+//						{
+//							Console.WriteLine("ERROR: Drone has encountered an error state.");
+//							setErrorState(true);
+//						}
+//
+//						string resp = Utils.decodeBytes(receiveBytes);
+//						return resp;
+//					}
+//				}
+//				catch (Exception e)
+//				{
+//					Console.WriteLine(e.Message);
+//					return "";
+//				}
+//			}
+//
+//			Console.WriteLine("ERROR: Timed out. Failed to receive from drone.");
+//			setErrorState(true);
+//			return "";
+//		}
 
 		public void stateLoop()
 		{
-			while (controllerRunning)
+			while (getIsCommunicationLive())
 			{
 				byte[] receiveBytes = stateReceiver.Receive(ref commandIpEndPoint);
 				string msg = Encoding.UTF8.GetString(receiveBytes);
@@ -115,11 +103,11 @@ namespace DroneController
 
 		public void startConnection()
 		{
-			sendMessage("command");
+			sendMessage(Command.getKeyword(), droneUDPClient, commandIpEndPoint);
 
-			string msg = getResponse();
+			string msg = getResponse(droneUDPClient, commandIpEndPoint);
 
-			if (msg == "ok")
+			if (msg == Ok.getKeyword())
 			{
 				Console.WriteLine("Connected to drone successfully at " + droneIp +
 				                  ":" + commandPort + ".");
@@ -135,48 +123,33 @@ namespace DroneController
 
 		public void stop()
 		{
-			controllerRunning = false;
-			// thread.Abort();
-			thread.Join();
+			setIsCommunicationLive(false);
+			thread.Abort();//.Join();
+		}
+		
+		public ref IPEndPoint getLocalIpEndPoint()
+		{
+			return ref localIpEndPoint;
 		}
 
-		public void setErrorState(bool errorState)
+		public ref IPEndPoint getCommandIpEndPoint()
 		{
-			isInErrorState = errorState;
+			return ref commandIpEndPoint;
 		}
 
-		public bool getErrorState()
+		public ref IPEndPoint getTelloStateIpEndPoint()
 		{
-			return isInErrorState;
+			return ref telloStateIpEndPoint;
+		}
+		
+		public UdpClient getDroneCommClient()
+		{
+			return droneUDPClient;
+		}
+
+		public UdpClient getStateRcvClient()
+		{
+			return stateReceiver;
 		}
 	}
 }
-
-//namespace DroneController
-//{
-//	public class DroneUDPClient : UDPBase
-//	{
-//		public DroneUDPClient(ref string droneIP, ref int dronePort) :
-//			base(ref droneIP, ref dronePort)
-//		{}
-//
-//		public void startConnection()
-//		{
-//			sendMessage("command");
-//
-//			string msg = getResponse();
-//
-//			if (msg == "ok")
-//			{
-//				Console.WriteLine("Connected to drone successfully at " + droneIP +
-//				                  ":" + dronePort + ".");
-//			}
-//			else
-//			{
-//				Console.WriteLine("ERROR: Failed to connect to drone at " + droneIP +
-//				                  ":" + dronePort + ".");
-//				setErrorState(true);
-//			}
-//		}
-//	}
-//}

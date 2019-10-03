@@ -11,31 +11,18 @@ using Shared.MessageTypes.Responses;
 
 namespace Simulator
 {
-	public class Simulator
+	public class Simulator : ErrorState
 	{
 		private const int SLEEP_TIME_MS = 100;
 
 		private SimulatorComm simulatorComm;
-
-		private const string LOCALHOST = "127.0.0.1";
-
-		protected readonly int commandPort;
-		protected readonly int telloStatePort;
-
-		private IPEndPoint localIpEndPoint;
-		private IPEndPoint commandIpEndPoint;
-		private IPEndPoint telloStateIpEndPoint;
-
-		private readonly UdpClient simUDPClient;
-		private bool simulatorRunning = true;
 
 		private readonly DroneState state;
 
 		private readonly Thread stateBroadcastThread;
 		private readonly Thread serverThread;
 
-		private readonly uint maxRetries;
-		private bool isInErrorState;
+//		private bool isInErrorState;
 
 		public Simulator(int commandPort = DefaultConstants.DEFAULT_COMMAND_PORT,
 			int telloStatePort = DefaultConstants.DEFAULT_TELLO_STATE_PORT,
@@ -45,30 +32,6 @@ namespace Simulator
 			state = new DroneState();
 
 			simulatorComm = new SimulatorComm(commandPort, telloStatePort, timeout, maxRetries);
-			
-			this.commandPort = commandPort;
-			this.telloStatePort = telloStatePort;
-			this.maxRetries = maxRetries;
-
-			try
-			{
-				commandIpEndPoint = new IPEndPoint(IPAddress.Parse(LOCALHOST), this.commandPort);
-
-				//simUDPClient = new UdpClient(commandPort)
-				simUDPClient = new UdpClient(commandIpEndPoint)
-					{Client = {SendTimeout = timeout, ReceiveTimeout = timeout}};
-
-				// udpSender = new UdpClient();
-				localIpEndPoint = new IPEndPoint(IPAddress.Any, 0);
-				// We'll learn the drone controller's ip address and port when we receive
-				// a datagram. Until then, we have to wait.
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine("ERROR: Invalid IP or port.");
-				Console.WriteLine(e);
-				setErrorState(true);
-			}
 
 			stateBroadcastThread = new Thread(stateBroadcastLoop);
 			serverThread = new Thread(setupServer);
@@ -81,61 +44,20 @@ namespace Simulator
 
 		public void setupServer()
 		{
-			byte[] bytes = simUDPClient.Receive(ref localIpEndPoint);
+			byte[] bytes = simulatorComm.getUdpClient().Receive(ref simulatorComm.getLocalIpEndPoint());
 			string msg = Utils.decodeBytes(bytes);
 			if (msg == Command.getKeyword())
 			{
-				telloStateIpEndPoint = new IPEndPoint(localIpEndPoint.Address, telloStatePort);
+				simulatorComm.getTelloStateIpEndPoint() =
+					new IPEndPoint(simulatorComm.getLocalIpEndPoint().Address, simulatorComm.telloStatePort);
 				stateBroadcastThread.Start();
 
 				state.setInCommandMode(true);
-				sendMessage(Ok.getKeyword());
+				simulatorComm.sendMessage(Ok.getKeyword(),
+					simulatorComm.getUdpClient(), simulatorComm.getLocalIpEndPoint());
 
 				serverLoop();
 			}
-		}
-
-		public void sendMessage(string msg)
-		{
-			byte[] msgBytes = Utils.encodeString(msg);
-			simUDPClient.Send(msgBytes, msgBytes.Length, localIpEndPoint);
-		}
-
-		public string getResponse()
-		{
-			uint numRetries = maxRetries;
-
-			while (numRetries-- > 0)
-			{
-				try
-				{
-					byte[] receiveBytes = simUDPClient.Receive(ref localIpEndPoint);
-					if (receiveBytes.Length > 0)
-					{
-						if (Encoding.UTF8.GetString(receiveBytes) == Error.getKeyword())
-						{
-							Console.WriteLine("ERROR: Simulator has encountered an error state.");
-							setErrorState(true);
-						}
-
-						return Encoding.UTF8.GetString(receiveBytes);
-					}
-				}
-				catch (Exception e)
-				{
-					if (simulatorRunning)
-					{
-						Console.WriteLine("Encountered an error in simulator getResponse function.");
-						Console.WriteLine(e.Message);
-					}
-
-					return "";
-				}
-			}
-
-			Console.WriteLine("ERROR: Timed out. Failed to receive from controller.");
-			setErrorState(true);
-			return "";
 		}
 
 		private string getQueryResult(Type msgType)
@@ -159,15 +81,15 @@ namespace Simulator
 
 		private void serverLoop()
 		{
-			while (simulatorRunning)
+			while (simulatorComm.getIsCommunicationLive())
 			{
-				Console.WriteLine("New loop!!!!");
-				string resp = getResponse();
+				string resp = simulatorComm.getResponse(simulatorComm.getUdpClient(), simulatorComm.getLocalIpEndPoint());
 				Message msg = MessageFactory.createMessage(resp);
 				if (msg == null)
 				{
 					Console.WriteLine("ERROR: Simulator received invalid message.");
-					sendMessage(Error.getKeyword());
+					simulatorComm.sendMessage(Error.getKeyword(),
+						simulatorComm.getUdpClient(), simulatorComm.getLocalIpEndPoint());
 					continue;
 				}
 
@@ -181,12 +103,10 @@ namespace Simulator
 				{
 					if (msgType == typeof(Command)) // Command
 					{
-						Console.WriteLine("got a command yay!");
 						simResponse = Ok.getKeyword();
 					}
 					else if (msgType.IsSubclassOf(typeof(ManeuverBase))) // Maneuvers
 					{
-						Console.WriteLine("got a maneuver yay!");
 						simResponse = Ok.getKeyword();
 						try
 						{
@@ -200,13 +120,12 @@ namespace Simulator
 					}
 					else if (msgType.IsSubclassOf(typeof(QueryBase))) // Queries
 					{
-						Console.WriteLine("got a query yay!");
 						simResponse = getQueryResult(msgType);
 					}
 				}
 				else // User has sent an invalid message
 				{
-					if (simulatorRunning)
+					if (simulatorComm.getIsCommunicationLive())
 					{
 						Console.WriteLine("ERROR: Simulator has encountered an invalid message from user: " + resp);
 						setErrorState(true);
@@ -215,41 +134,37 @@ namespace Simulator
 					simResponse = Error.getKeyword();
 				}
 
-				Console.WriteLine("Server sending! " + simResponse);
-				sendMessage(simResponse);
+				simulatorComm.sendMessage(simResponse,
+					simulatorComm.getUdpClient(), simulatorComm.getLocalIpEndPoint());
 			}
 		}
 
 		private void stateBroadcastLoop()
 		{
-			while (simulatorRunning)
+			while (simulatorComm.getIsCommunicationLive())
 			{
 				string stateString = Status.getMessageTextFromState(state);
-				byte[] bytes = Utils.encodeString(stateString);
-				//Console.WriteLine("Sending state: " + stateString);
-				simUDPClient.Send(bytes, bytes.Length, telloStateIpEndPoint);
+				simulatorComm.sendMessage(stateString,
+					simulatorComm.getUdpClient(), simulatorComm.getTelloStateIpEndPoint());
 				Thread.Sleep(SLEEP_TIME_MS);
 			}
 		}
 
 		public void stop()
 		{
-			// fucking die
-			// stateBroadcastThread.Abort();
-			// serverThread.Abort();
-			simulatorRunning = false;
-			stateBroadcastThread.Join();
-			serverThread.Join();
+			simulatorComm.setIsCommunicationLive(false);
+			stateBroadcastThread.Abort();//.Join();
+			serverThread.Abort();//.Join();
 		}
 
-		public void setErrorState(bool errorState)
-		{
-			isInErrorState = errorState;
-		}
-
-		public bool getErrorState()
-		{
-			return isInErrorState;
-		}
+//		public void setErrorState(bool errorState)
+//		{
+//			isInErrorState = errorState;
+//		}
+//
+//		public bool getErrorState()
+//		{
+//			return isInErrorState;
+//		}
 	}
 }

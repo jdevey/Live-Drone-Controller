@@ -6,17 +6,17 @@ using Shared.MessageTypes.Responses;
 
 namespace Shared
 {
-	public class UDPCommBase
+	public class UDPCommBase : ErrorState
 	{
-		protected readonly string droneIp;
+		public readonly string droneIp;
 		
-		protected readonly int localPort;
-		protected readonly int commandPort;
-		protected readonly int telloStatePort;
+		public readonly int localPort;
+		public readonly int commandPort;
+		public readonly int telloStatePort;
 		
 		private uint maxRetries;
 		private bool isCommunicationLive = true;
-		private bool isInErrorState;
+		// private bool isInErrorState;
 
 		public UDPCommBase(
 			string droneIp = DefaultConstants.LOCALHOST,
@@ -69,19 +69,33 @@ namespace Shared
 				}
 			}
 
-			Console.WriteLine("ERROR: Timed out. UDP base failed to receive from drone.");
-			setErrorState(true);
+			if (isCommunicationLive)
+			{
+				Console.WriteLine("ERROR: Timed out. UDP base failed to receive from drone.");
+				setErrorState(true);
+			}
+
 			return "";
 		}
-		
-		public void setErrorState(bool errorState)
+
+		public bool getIsCommunicationLive()
 		{
-			isInErrorState = errorState;
+			return isCommunicationLive;
 		}
 
-		public bool getErrorState()
+		public void setIsCommunicationLive(bool value)
 		{
-			return isInErrorState;
+			isCommunicationLive = value;
 		}
+		
+//		public void setErrorState(bool errorState)
+//		{
+//			isInErrorState = errorState;
+//		}
+//
+//		public bool getErrorState()
+//		{
+//			return isInErrorState;
+//		}
 	}
 }
