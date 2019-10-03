@@ -84,6 +84,12 @@
             "projectReferences": {
               "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\DroneController\\DroneController.csproj": {
                 "projectPath": "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\DroneController\\DroneController.csproj"
+              },
+              "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\Shared\\Shared.csproj": {
+                "projectPath": "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\Shared\\Shared.csproj"
+              },
+              "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\Simulator\\Simulator.csproj": {
+                "projectPath": "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\Simulator\\Simulator.csproj"
               }
             }
           }

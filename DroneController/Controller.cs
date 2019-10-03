@@ -14,7 +14,7 @@ namespace DroneController
 		private const string START_MISSION_SLEEP_TIME = "200";
 		private const string DEFAULT_SLEEP_TIME = "1000";
 
-		private static string[] rotateMission =
+		public static readonly string[] rotateMission =
 		{
 			"sleep " + START_MISSION_SLEEP_TIME,
 			"takeoff",
@@ -24,7 +24,7 @@ namespace DroneController
 			"land"
 		};
 
-		private static string[] leftRightMission =
+		public static readonly string[] leftRightMission =
 		{
 			"sleep " + START_MISSION_SLEEP_TIME,
 			"takeoff",
@@ -35,7 +35,7 @@ namespace DroneController
 			"land"
 		};
 
-		private static string[] squareMission =
+		public static readonly string[] squareMission =
 		{
 			"sleep " + START_MISSION_SLEEP_TIME,
 			"takeoff",
@@ -87,7 +87,7 @@ namespace DroneController
 			controllerUdpClient.startConnection();
 			
 			stateLoopThread = new Thread(stateLoop);
-			if (controllerUdpClient.getErrorState() == false)
+			if (!controllerUdpClient.getErrorState())
 			{
 				stateLoopThread.Start();
 			}
@@ -98,7 +98,6 @@ namespace DroneController
 			List<Message> messages = new List<Message>();
 			foreach (string action in actionList)
 			{
-				
 				Message msg = MessageFactory.createMessage(action);
 				
 				Type msgType = msg.GetType();
@@ -113,6 +112,7 @@ namespace DroneController
 				else
 				{
 					Console.WriteLine("ERROR: Attempted to add invalid command to mission: " + action);
+					setErrorState(true);
 				}
 			}
 
@@ -152,7 +152,7 @@ namespace DroneController
 		public void stop()
 		{
 			controllerUdpClient.setIsCommunicationLive(false);
-			stateLoopThread.Abort();//.Join();
+			stateLoopThread.Join();//.Abort();
 		}
 
 		public ControllerComm getUDPClient()

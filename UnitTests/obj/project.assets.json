@@ -5800,6 +5800,8 @@
       "Microsoft.NET.Test.Sdk >= 15.8.0",
       "Microsoft.NETCore.App >= 2.1.0",
       "NUnit3TestAdapter >= 3.10.0",
+      "Shared >= 1.0.0",
+      "Simulator >= 1.0.0",
       "nunit >= 3.10.1"
     ]
   },
@@ -5833,6 +5835,12 @@
           "projectReferences": {
             "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\DroneController\\DroneController.csproj": {
               "projectPath": "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\DroneController\\DroneController.csproj"
+            },
+            "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\Shared\\Shared.csproj": {
+              "projectPath": "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\Shared\\Shared.csproj"
+            },
+            "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\Simulator\\Simulator.csproj": {
+              "projectPath": "C:\\Users\\devey\\Code\\School\\CS5700\\hw2\\CS5700HW2\\Simulator\\Simulator.csproj"
             }
           }
         }

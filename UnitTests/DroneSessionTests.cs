@@ -5,7 +5,7 @@
 //namespace UnitTests
 //{
 //	[TestFixture]
-//	public class DroneSessionTests
+//	public class controllerTests
 //	{
 //		[Test]
 //		public void Main()
@@ -25,30 +25,30 @@
 ////			// s.Client("127.0.0.1", 8889);
 ////			s.start();
 //
-//			DroneSession droneSession = new DroneSession(
+//			controller controller = new controller(
 //				ref TestConstants.droneIp,
 //				ref TestConstants.dronePort);
 //			
-//			Assert.IsFalse(droneSession.getUDPClient().getErrorState(), "Drone in error state.");
-//			Assert.AreEqual(droneSession.getUDPClient(), droneSession.getUDPClient());
+//			Assert.IsFalse(controller.getUDPClient().getErrorState(), "Drone in error state.");
+//			Assert.AreEqual(controller.getUDPClient(), controller.getUDPClient());
 //			
-//			droneSession.addMission(ref TestConstants.leftRightMission);
-//			Assert.IsFalse(droneSession.getErrorState(), "Drone in error state.");
+//			controller.addMission(ref TestConstants.leftRightMission);
+//			Assert.IsFalse(controller.getErrorState(), "Drone in error state.");
 //
-//			droneSession.addMission(ref TestConstants.badMission);
-//			Assert.IsTrue(droneSession.getErrorState(), "Drone not in error state.");
-//			droneSession.setErrorState(false);
+//			controller.addMission(ref TestConstants.badMission);
+//			Assert.IsTrue(controller.getErrorState(), "Drone not in error state.");
+//			controller.setErrorState(false);
 //
-//			droneSession.executeMission(1);
-//			Assert.IsFalse(droneSession.getErrorState(), "Drone in error state.");
+//			controller.executeMission(1);
+//			Assert.IsFalse(controller.getErrorState(), "Drone in error state.");
 //
-//			droneSession.executeMission(0);
-//			Assert.IsTrue(droneSession.getErrorState(), "Drone not in error state.");
-//			droneSession.setErrorState(false);
+//			controller.executeMission(0);
+//			Assert.IsTrue(controller.getErrorState(), "Drone not in error state.");
+//			controller.setErrorState(false);
 //
-//			droneSession.executeMission(7);
-//			Assert.IsTrue(droneSession.getErrorState(), "Drone not in error state.");
-//			droneSession.setErrorState(false);
+//			controller.executeMission(7);
+//			Assert.IsTrue(controller.getErrorState(), "Drone not in error state.");
+//			controller.setErrorState(false);
 //
 //			server.closeClient();
 ////			droneSimulator.closeClient();

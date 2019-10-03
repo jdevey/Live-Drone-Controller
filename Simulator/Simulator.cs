@@ -158,8 +158,8 @@ namespace Simulator
 		public void stop()
 		{
 			simulatorComm.setIsCommunicationLive(false);
-			stateBroadcastThread.Abort();//.Join();
-			serverThread.Abort();//.Join();
+			stateBroadcastThread.Join();//.Abort();
+			serverThread.Join();//.Abort();
 		}
 	}
 }

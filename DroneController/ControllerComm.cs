@@ -27,7 +27,6 @@ namespace DroneController
 			uint maxRetries = DefaultConstants.DEFAULT_MAX_RETRIES)
 				: base(droneIp, localPort, commandPort, telloStatePort, timeout, maxRetries)
 		{
-
 			try
 			{
 				localIpEndPoint = new IPEndPoint(IPAddress.Parse(DefaultConstants.LOCALHOST), localPort);
