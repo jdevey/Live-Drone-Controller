@@ -1,7 +1,7 @@
 ﻿﻿﻿using System;
 using System.Threading;
 
-namespace Shared.MessageTypes
+namespace Shared.MessageTypes.Enhancements
 {
   public class SleepAction : Message
   {

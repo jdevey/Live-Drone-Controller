@@ -5,6 +5,9 @@ namespace Shared.MessageTypes
 {
 	public class Status : Message
 	{
+		private int x;
+		private int y;
+		private int z;
 		private int pitch;
 		private int roll;
 		private int yaw;
@@ -21,14 +24,17 @@ namespace Shared.MessageTypes
 		private double accelerationX;
 		private double accelerationY;
 		private double accelerationZ;
-		
+
 
 //		public Status(int pitch, int roll, int yaw, int speedX, int speedY, int speedZ,
 //			int lowTemperature, int highTemperature, int flightDistance, int height,
 //			int batteryPercentage, double barometerMeasurement, int motorTime,
 //			double accelerationX, double accelerationY, double accelerationZ)
-public Status(DroneState state) : base(getMessageTextFromState(state))
+		public Status(DroneState state) : base(getMessageTextFromState(state))
 		{
+			x = state.getPositionX();
+			y = state.getPositionY();
+			z = state.getPositionZ();
 			pitch = state.getPitch();
 			roll = state.getRoll();
 			yaw = state.getYaw();
@@ -51,25 +57,25 @@ public Status(DroneState state) : base(getMessageTextFromState(state))
 		{
 			parseData(data);
 		}
-		
+
 		public static string getKeyword()
 		{
 			return "mid";
 		}
 
-		public static string formatStringForMessage(int pitch, int roll, int yaw, int speedX,
+		public static string formatStringForMessage(int x, int y, int z, int pitch, int roll, int yaw, int speedX,
 			int speedY, int speedZ, int lowTemperature, int highTemperature, int flightDistance,
 			int height, int batteryPercentage, double barometerMeasurement, int motorTime,
 			double accelerationX, double accelerationY, double accelerationZ)
 		{
-			return string.Format("mid:-1;x:0;y:0;z:0;mpry:0,0,0;pitch:{0};roll:{1};yaw:{2};" +
-			                     "vgx:{3};vgy:{4};vgz:{5};" +
-			                     "templ:{6};temph:{7};" +
-			                     "tof:{8};h:{9};" +
-			                     "bat:{10};baro:{11};" +
-			                     "time:{12};" +
-			                     "agx:{13};agy:{14};agz:{15}",
-				pitch, roll, yaw,
+			return string.Format("mid:-1;x:{0};y:{1};z:{2};mpry:0,0,0;pitch:{3};roll:{4};yaw:{5};" +
+			                     "vgx:{6};vgy:{7};vgz:{8};" +
+			                     "templ:{9};temph:{10};" +
+			                     "tof:{11};h:{12};" +
+			                     "bat:{13};baro:{14};" +
+			                     "time:{15};" +
+			                     "agx:{16};agy:{17};agz:{18}",
+				x, y, z, pitch, roll, yaw,
 				speedX, speedY, speedZ,
 				lowTemperature, highTemperature,
 				flightDistance, height,
@@ -80,7 +86,7 @@ public Status(DroneState state) : base(getMessageTextFromState(state))
 
 		public static string getMessageTextFromState(DroneState state)
 		{
-			return formatStringForMessage(
+			return formatStringForMessage(state.getPositionX(), state.getPositionY(), state.getPositionZ(),
 				state.getPitch(), state.getRoll(), state.getYaw(),
 				state.getSpeedX(), state.getSpeedY(), state.getSpeedZ(),
 				state.getLowTemperature(), state.getHighTemperature(),
@@ -94,7 +100,7 @@ public Status(DroneState state) : base(getMessageTextFromState(state))
 		public override string getMessageText()
 		{
 			return formatStringForMessage(
-				pitch, roll, yaw,
+				x, y, z, pitch, roll, yaw,
 				speedX, speedY, speedZ,
 				lowTemperature, highTemperature,
 				flightDistance, height,
@@ -200,6 +206,9 @@ public Status(DroneState state) : base(getMessageTextFromState(state))
 				return;
 			}
 
+			x = parseInteger("x", stateFields[1]);
+			y = parseInteger("y", stateFields[2]);
+			z = parseInteger("z", stateFields[3]);
 			pitch = parseInteger("pitch", stateFields[5]);
 			roll = parseInteger("roll", stateFields[6]);
 			yaw = parseInteger("yaw", stateFields[7]);

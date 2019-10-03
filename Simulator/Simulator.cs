@@ -22,8 +22,6 @@ namespace Simulator
 		private readonly Thread stateBroadcastThread;
 		private readonly Thread serverThread;
 
-//		private bool isInErrorState;
-
 		public Simulator(int commandPort = DefaultConstants.DEFAULT_COMMAND_PORT,
 			int telloStatePort = DefaultConstants.DEFAULT_TELLO_STATE_PORT,
 			int timeout = DefaultConstants.DEFAULT_TIMEOUT,
@@ -65,7 +63,7 @@ namespace Simulator
 			string simResponse = Error.getKeyword();
 			if (msgType == typeof(TimeQuery))
 			{
-				simResponse = Utils.formatDouble(state.getCurrentFlightTime());
+				simResponse = Utils.formatDouble(state.getMotorTime());
 			}
 			else if (msgType == typeof(BatteryQuery))
 			{
@@ -143,6 +141,13 @@ namespace Simulator
 		{
 			while (simulatorComm.getIsCommunicationLive())
 			{
+				state.setMotorTime(state.getMotorTime() + 100);
+				state.setStateSetCount(state.getStateSetCount() + 1);
+				if (state.getStateSetCount() % 2 == 0)
+				{
+					state.setBatteryPercentage(state.getBatteryPercentage() - 1);
+					state.setHighTemperature(state.getHighTemperature() + 1);
+				}
 				string stateString = Status.getMessageTextFromState(state);
 				simulatorComm.sendMessage(stateString,
 					simulatorComm.getUdpClient(), simulatorComm.getTelloStateIpEndPoint());
@@ -156,15 +161,5 @@ namespace Simulator
 			stateBroadcastThread.Abort();//.Join();
 			serverThread.Abort();//.Join();
 		}
-
-//		public void setErrorState(bool errorState)
-//		{
-//			isInErrorState = errorState;
-//		}
-//
-//		public bool getErrorState()
-//		{
-//			return isInErrorState;
-//		}
 	}
 }

@@ -13,13 +13,10 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controller.cs" t="Include" />
         <e p="ControllerComm.cs" t="Include" />
-        <e p="DroneAction.cs" t="Include" />
         <e p="DroneController.csproj" t="IncludeRecursive" />
         <e p="Flyer.cs" t="Include" />
-        <e p="Maneuver.cs" t="Include" />
         <e p="Mission.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
-        <e p="OldUDPBase.cs" t="Include" />
         <e p="Properties" t="Include">
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
@@ -34,6 +31,11 @@
         <e p="MessageFactory.cs" t="Include" />
         <e p="MessageTypes" t="Include">
           <e p="Command.cs" t="Include" />
+          <e p="Enhancements" t="Include">
+            <e p="PrintBroadcastCount.cs" t="Include" />
+            <e p="PrintState.cs" t="Include" />
+            <e p="SleepAction.cs" t="Include" />
+          </e>
           <e p="ManeuverBase.cs" t="Include" />
           <e p="Maneuvers" t="Include">
             <e p="Curve.cs" t="Include" />
@@ -57,7 +59,6 @@
             <e p="Error.cs" t="Include" />
             <e p="Ok.cs" t="Include" />
           </e>
-          <e p="SleepAction.cs" t="Include" />
           <e p="Status.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive" />

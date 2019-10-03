@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Shared.MessageTypes.Maneuvers
 {
@@ -49,6 +50,11 @@ namespace Shared.MessageTypes.Maneuvers
 					state.move(-10, 0, 0);
 					break;
 			}
+		}
+
+		public char getDirection()
+		{
+			return direction;
 		}
 	}
 }

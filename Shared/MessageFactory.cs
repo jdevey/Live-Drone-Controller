@@ -5,6 +5,7 @@ using Shared.MessageTypes;
 using Shared.MessageTypes.Responses;
 using Shared.MessageTypes.Queries;
 using Shared.MessageTypes.Maneuvers;
+using Shared.MessageTypes.Enhancements;
 
 namespace Shared
 {
@@ -16,7 +17,7 @@ namespace Shared
 		{
 			for (int i = 0; i < text.Length; ++i)
 			{
-				if (!(Char.IsLetter(text[i])))
+				if (Char.IsLetter(text[i]) == false)
 				{
 					return text.Substring(0, i);
 				}
@@ -43,6 +44,10 @@ namespace Shared
 				message = new Error(text);
 			else if (text.StartsWith(SleepAction.getKeyword()))
 				message = new SleepAction(text);
+			else if (text.StartsWith(PrintState.getKeyword()))
+				message = new PrintState(text);
+			else if (text.StartsWith(PrintBroadcastCount.getKeyword()))
+				message = new PrintBroadcastCount(text);
 			else if (text.StartsWith(BatteryQuery.getKeyword()))
 				message = new BatteryQuery(text);
 			else if (text.StartsWith(SpeedQuery.getKeyword()))
@@ -69,6 +74,23 @@ namespace Shared
 				message = new DataResponse(text);
 			
 			return message;
+		}
+		
+		public static DirectionalMove convertFlipToDirectionalMove(Flip flip)
+		{
+			switch (flip.getDirection())
+			{
+				case 'r':
+					return new DirectionalMove("right 10");
+				case 'l':
+					return new DirectionalMove("left 10");
+				case 'f':
+					return new DirectionalMove("forward 10");
+				case 'b':
+					return new DirectionalMove("back 10");
+				default:
+					return new DirectionalMove("forward 10");
+			}
 		}
 	}
 }

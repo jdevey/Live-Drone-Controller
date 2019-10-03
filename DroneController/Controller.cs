@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using Shared;
 using Shared.MessageTypes;
+using Shared.MessageTypes.Enhancements;
 
 namespace DroneController
 {
@@ -58,7 +59,7 @@ namespace DroneController
 			"land"
 		};
 
-		private DroneState state;
+		private readonly DroneState state;
 
 		private ControllerComm controllerUdpClient;
 
@@ -127,7 +128,11 @@ namespace DroneController
 				string msg = Utils.decodeBytes(receiveBytes);
 				Status status = new Status(msg);
 				state.updateFlyingInfo(status);
-				// Console.WriteLine(msg);
+				state.setStateSetCount(state.getStateSetCount() + 1);
+				if (state.getStateSetCount() % 10 == 0)
+				{
+					Console.WriteLine(msg);
+				}
 			}
 		}
 
@@ -141,7 +146,7 @@ namespace DroneController
 				return;
 			}
 
-			missionList[missionNumber - 1].execute(ref controllerUdpClient);
+			missionList[missionNumber - 1].execute(controllerUdpClient, controllerUdpClient.getCommandIpEndPoint(), state);
 		}
 		
 		public void stop()

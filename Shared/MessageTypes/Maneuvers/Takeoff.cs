@@ -16,7 +16,7 @@
 			state.setHasTakenOff(true);
 			
 			// Drone flys up approximately one meter upon takeoff
-			state.move(0, 100, 0);
+			state.move(0, 0, 100);
 		}
 	}
 }

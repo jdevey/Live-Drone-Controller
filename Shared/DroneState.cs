@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using Shared.MessageTypes;
 
 namespace Shared
@@ -9,10 +10,10 @@ namespace Shared
 		private bool takenOff;
 		private bool videoStreamOn;
 		private DateTime stateTimestamp;
-		private double currentFlightTime; // TODO update flight time every 100ms
-		private double positionX; // Left and right
-		private double positionY; // Forward and backward
-		private double positionZ; // Up and down
+		// private double currentFlightTime; // Not needed?
+		private int positionX; // Left and right
+		private int positionY; // Forward and backward
+		private int positionZ; // Up and down
 		private int pitch;
 		private int roll;
 		private int yaw;
@@ -25,11 +26,13 @@ namespace Shared
 		private int height;
 		private int batteryPercentage;
 		private double barometerMeasurement;
-		private int motorTime;
+		private int motorTime; // time ms
 		private double accelerationX;
 		private double accelerationY;
 		private double accelerationZ;
 		private int orientation;
+
+		private int stateSentCount;
 
 		public DroneState()
 		{
@@ -73,18 +76,18 @@ namespace Shared
 			this.videoStreamOn = inCommandMode && videoStreamOn;
 		}
 
-		public double getCurrentFlightTime()
-		{
-			return currentFlightTime;
-		}
+//		public double getCurrentFlightTime()
+//		{
+//			return currentFlightTime;
+//		}
 
-		public void setCurrentFlightTime(double currentFlightTime)
-		{
-			if (inCommandMode)
-			{
-				this.currentFlightTime = currentFlightTime;
-			}
-		}
+//		public void setCurrentFlightTime(double currentFlightTime)
+//		{
+//			if (inCommandMode)
+//			{
+//				this.currentFlightTime = currentFlightTime;
+//			}
+//		}
 
 		public void updateFlyingInfo(Status status)
 		{
@@ -131,12 +134,12 @@ namespace Shared
 			double rotatedX = Math.Cos(rotation) * deltaX - Math.Sin(rotation) * deltaY;
 			double rotatedY = Math.Sin(rotation) * deltaX + Math.Cos(rotation) * deltaY;
 
-			positionX += rotatedX;
-			positionY += rotatedY;
-			positionZ += deltaZ;
+			positionX += (int)Math.Round(rotatedX);
+			positionY += (int)Math.Round(rotatedY);
+			positionZ += (int)Math.Round(deltaZ);
 		}
 
-		public void travelTo(double x, double y, double z)
+		public void travelTo(int x, int y, int z)
 		{
 			if (!takenOff) return;
 
@@ -153,17 +156,17 @@ namespace Shared
 			orientation %= 360;
 		}
 
-		public double getPositionX()
+		public int getPositionX()
 		{
 			return positionX;
 		}
 
-		public double getPositionY()
+		public int getPositionY()
 		{
 			return positionY;
 		}
 
-		public double getPositionZ()
+		public int getPositionZ()
 		{
 			return positionZ;
 		}
@@ -223,6 +226,11 @@ namespace Shared
 			return highTemperature;
 		}
 
+		public void setHighTemperature(int temp)
+		{
+			highTemperature = temp;
+		}
+
 		public int getFlightDistance()
 		{
 			return flightDistance;
@@ -238,6 +246,11 @@ namespace Shared
 			return batteryPercentage;
 		}
 
+		public void setBatteryPercentage(int perc)
+		{
+			batteryPercentage = perc;
+		}
+
 		public double getBarometerMeasurement()
 		{
 			return barometerMeasurement;
@@ -248,9 +261,24 @@ namespace Shared
 			return motorTime;
 		}
 
+		public void setMotorTime(int time)
+		{
+			motorTime = time;
+		}
+
 		public int getOrientation()
 		{
 			return orientation;
+		}
+
+		public int getStateSetCount()
+		{
+			return stateSentCount;
+		}
+
+		public void setStateSetCount(int cnt)
+		{
+			stateSentCount = cnt;
 		}
 
 		private void resetState()
@@ -263,27 +291,28 @@ namespace Shared
 
 		private void resetFlyingInfo()
 		{
-			currentFlightTime = 0.0;
-			positionX = 0.0;
-			positionY = 0.0;
-			positionZ = 0.0;
+			// currentFlightTime = 0.0;
+			positionX = 0;
+			positionY = 0;
+			positionZ = 0;
 			pitch = 0;
 			roll = 0;
 			yaw = 0;
 			speedX = 0;
 			speedY = 0;
 			speedZ = 0;
-			lowTemperature = 0;
-			highTemperature = 0;
+			lowTemperature = 20;
+			highTemperature = 20;
 			flightDistance = 0;
 			height = 0;
-			batteryPercentage = 0;
+			batteryPercentage = 100;
 			barometerMeasurement = 0.0;
 			motorTime = 0;
 			accelerationX = 0.0;
 			accelerationY = 0.0;
 			accelerationZ = 0.0;
 			orientation = 0;
+			stateSentCount = 0;
 		}
 	}
 }
