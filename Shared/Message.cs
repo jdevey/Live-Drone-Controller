@@ -16,7 +16,7 @@ namespace Shared
 
 		protected Message(string messageText)
 		{
-			this.messageText = messageText; // TODO fix the messageText shit
+			this.messageText = messageText;
 		}
 		
 //		public virtual string getKeyword()

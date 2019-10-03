@@ -81,6 +81,7 @@
       </e>
       <e p="UnitTests" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="ControllerCommTests.cs" t="Include" />
         <e p="ControllerTests.cs" t="Include" />
         <e p="DroneActionTests.cs" t="Include" />
         <e p="DroneSessionTests.cs" t="Include" />

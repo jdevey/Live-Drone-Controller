@@ -30,7 +30,7 @@ namespace Simulator
 				commandIpEndPoint = new IPEndPoint(IPAddress.Parse(DefaultConstants.LOCALHOST), this.commandPort);
 
 				simUDPClient = new UdpClient(commandIpEndPoint)
-					{Client = {SendTimeout = timeout, ReceiveTimeout = timeout}};
+					{Client = {SendTimeout = timeout, ReceiveTimeout = timeout}};//, ExclusiveAddressUse = true}};
 
 				// udpSender = new UdpClient();
 				localIpEndPoint = new IPEndPoint(IPAddress.Any, 0);

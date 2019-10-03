@@ -84,7 +84,7 @@ namespace DroneController
 			addMission(leftRightMission);
 			addMission(squareMission);
 
-			controllerUdpClient.startConnection();
+			// controllerUdpClient.startConnection();
 			
 			stateLoopThread = new Thread(stateLoop);
 			if (!controllerUdpClient.getErrorState())
@@ -152,7 +152,10 @@ namespace DroneController
 		public void stop()
 		{
 			controllerUdpClient.setIsCommunicationLive(false);
-			stateLoopThread.Join();//.Abort();
+			if (stateLoopThread.IsAlive)
+			{
+				stateLoopThread.Join();//.Abort();
+			}
 		}
 
 		public ControllerComm getUDPClient()

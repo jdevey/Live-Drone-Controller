@@ -79,6 +79,7 @@ namespace DroneController
 				timeout: timeout,
 				maxRetries: retries
 			);
+			controller.getUDPClient().startConnection();
 
 			foreach (int desiredMission in desiredMissions)
 			{

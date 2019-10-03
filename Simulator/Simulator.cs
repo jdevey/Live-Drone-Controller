@@ -42,8 +42,23 @@ namespace Simulator
 
 		public void setupServer()
 		{
-			byte[] bytes = simulatorComm.getUdpClient().Receive(ref simulatorComm.getLocalIpEndPoint());
-			string msg = Utils.decodeBytes(bytes);
+			if (simulatorComm == null || simulatorComm.getLocalIpEndPoint() == null)
+			{
+				Console.WriteLine("h");
+			}
+
+			string msg = "";
+			byte[] bytes;
+			try
+			{
+				bytes = simulatorComm.getUdpClient().Receive(ref simulatorComm.getLocalIpEndPoint());
+				msg = Utils.decodeBytes(bytes);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("ERROR: Failed to set up simulator.");
+				setErrorState(true);
+			}
 			if (msg == Command.getKeyword())
 			{
 				simulatorComm.getTelloStateIpEndPoint() =
@@ -158,8 +173,19 @@ namespace Simulator
 		public void stop()
 		{
 			simulatorComm.setIsCommunicationLive(false);
-			stateBroadcastThread.Join();//.Abort();
-			serverThread.Join();//.Abort();
+			if (stateBroadcastThread.IsAlive)
+			{
+				stateBroadcastThread.Join();//.Abort();
+			}
+			if (serverThread.IsAlive)
+			{
+				serverThread.Join();//.Abort();
+			}
+		}
+
+		public SimulatorComm getSimulatorComm()
+		{
+			return simulatorComm;
 		}
 	}
 }

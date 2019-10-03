@@ -16,7 +16,6 @@ namespace Shared
 		
 		private uint maxRetries;
 		private bool isCommunicationLive = true;
-		// private bool isInErrorState;
 
 		public UDPCommBase(
 			string droneIp = DefaultConstants.LOCALHOST,
@@ -36,7 +35,15 @@ namespace Shared
 		public void sendMessage(string msg, UdpClient updClient, IPEndPoint remoteIpEndpoint)
 		{
 			byte[] msgBytes = Utils.encodeString(msg);
-			updClient.Send(msgBytes, msgBytes.Length, remoteIpEndpoint);
+			try
+			{
+				updClient.Send(msgBytes, msgBytes.Length, remoteIpEndpoint);
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("ERROR: Failed to send message in UDP base.");
+				setErrorState(true);
+			}
 		}
 
 		public string getResponse(UdpClient updClient, IPEndPoint remoteIpEndpoint)
@@ -87,15 +94,5 @@ namespace Shared
 		{
 			isCommunicationLive = value;
 		}
-		
-//		public void setErrorState(bool errorState)
-//		{
-//			isInErrorState = errorState;
-//		}
-//
-//		public bool getErrorState()
-//		{
-//			return isInErrorState;
-//		}
 	}
 }

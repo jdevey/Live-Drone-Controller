@@ -9,7 +9,7 @@ namespace Shared
 		private bool inCommandMode;
 		private bool takenOff;
 		private bool videoStreamOn;
-		private DateTime stateTimestamp;
+		//private DateTime stateTimestamp;
 		// private double currentFlightTime; // Not needed?
 		private int positionX; // Left and right
 		private int positionY; // Forward and backward
@@ -116,10 +116,10 @@ namespace Shared
 			// stateTimestamp = new DateTime();
 		}
 
-		public DateTime getStateTimestamp()
-		{
-			return stateTimestamp;
-		}
+//		public DateTime getStateTimestamp()
+//		{
+//			return stateTimestamp;
+//		}
 
 		private static double toRadians(double angle)
 		{
@@ -150,8 +150,6 @@ namespace Shared
 
 		public void rotate(int deltaOrientation)
 		{
-			if (!takenOff) return;
-
 			orientation += deltaOrientation + 360;
 			orientation %= 360;
 		}
@@ -285,7 +283,7 @@ namespace Shared
 		{
 			videoStreamOn = false;
 			takenOff = false;
-			stateTimestamp = new DateTime();
+			// stateTimestamp = new DateTime();
 			resetFlyingInfo();
 		}
 

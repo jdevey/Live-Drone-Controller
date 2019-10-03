@@ -34,10 +34,10 @@ namespace DroneController
 				telloStateIpEndPoint = new IPEndPoint(IPAddress.Parse(DefaultConstants.LOCALHOST), telloStatePort);
 
 				droneUDPClient = new UdpClient(localIpEndPoint)
-					{Client = {SendTimeout = timeout, ReceiveTimeout = timeout}};
+					{Client = {SendTimeout = timeout, ReceiveTimeout = timeout}};//, ExclusiveAddressUse = true}};
 
 				stateReceiver = new UdpClient(telloStateIpEndPoint)
-					{Client = {SendTimeout = timeout, ReceiveTimeout = timeout}};
+					{Client = {SendTimeout = timeout, ReceiveTimeout = timeout}};//, ExclusiveAddressUse = true}};
 			}
 			catch (Exception e)
 			{
@@ -46,55 +46,6 @@ namespace DroneController
 				setErrorState(true);
 			}
 		}
-
-//		public void sendMessage(string msg)
-//		{
-//			byte[] msgBytes = Encoding.UTF8.GetBytes(msg);
-//			droneUDPClient.Send(msgBytes, msgBytes.Length, commandIpEndPoint);
-//		}
-//
-//		public string getResponse()
-//		{
-//			uint numRetries = retr;
-//
-//			while (numRetries-- > 0)
-//			{
-//				try
-//				{
-//					byte[] receiveBytes = droneUDPClient.Receive(ref commandIpEndPoint);
-//					if (receiveBytes.Length > 0)
-//					{
-//						if (Encoding.UTF8.GetString(receiveBytes) == "error")
-//						{
-//							Console.WriteLine("ERROR: Drone has encountered an error state.");
-//							setErrorState(true);
-//						}
-//
-//						string resp = Utils.decodeBytes(receiveBytes);
-//						return resp;
-//					}
-//				}
-//				catch (Exception e)
-//				{
-//					Console.WriteLine(e.Message);
-//					return "";
-//				}
-//			}
-//
-//			Console.WriteLine("ERROR: Timed out. Failed to receive from drone.");
-//			setErrorState(true);
-//			return "";
-//		}
-
-//		public void stateLoop()
-//		{
-//			while (getIsCommunicationLive())
-//			{
-//				byte[] receiveBytes = stateReceiver.Receive(ref commandIpEndPoint);
-//				string msg = Encoding.UTF8.GetString(receiveBytes);
-//				// Console.WriteLine(msg);
-//			}
-//		}
 
 		public void startConnection()
 		{

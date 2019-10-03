@@ -31,7 +31,6 @@ namespace Shared.MessageTypes.Maneuvers
 		public override void updateState(DroneState state)
 		{
 			state.travelTo(x2, y2, z2);
-			// TODO sleep?
 		}
 	}
 }

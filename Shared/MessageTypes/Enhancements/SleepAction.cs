@@ -22,10 +22,5 @@ namespace Shared.MessageTypes.Enhancements
     {
       Thread.Sleep(sleepTime);
     }
-
-//    public int getSleepTime()
-//    {
-//      return sleepTime; // TODO how to execute?
-//    }
   }
 }
