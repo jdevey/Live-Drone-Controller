@@ -72,7 +72,7 @@
       );
       simulator.start();
 
-      DroneSession droneSession = new DroneSession(
+      Controller controller = new Controller(
         droneIp: droneIP,
         commandPort: cmdport,
         telloStatePort: stateport,
@@ -83,11 +83,11 @@
       foreach (int desiredMission in desiredMissions)
       {
         Console.WriteLine("--- Now executing mission " + desiredMission + " ---");
-        droneSession.executeMission(desiredMission);
+        controller.executeMission(desiredMission);
         Console.WriteLine();
       }
 
-      droneSession.getUDPClient().stop();
+      controller.stop();
       simulator.stop();
     }
   }

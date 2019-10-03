@@ -52,10 +52,10 @@ namespace Shared
 
 //		public abstract string getMessageType();
 
-//		public string getMessageText()
-//		{
-//			return messageText;
-//		}
+		public virtual string getMessageText()
+		{
+			return messageText;
+		}
 
 		public bool isValid()
 		{

@@ -9,7 +9,7 @@ using Shared.MessageTypes.Responses;
 
 namespace DroneController
 {
-	public class DroneUDPClient : UDPCommBase
+	public class ControllerComm : UDPCommBase
 	{
 		private IPEndPoint localIpEndPoint;
 		private IPEndPoint commandIpEndPoint;
@@ -18,9 +18,7 @@ namespace DroneController
 		private readonly UdpClient droneUDPClient;
 		private readonly UdpClient stateReceiver;
 
-		private Thread thread;
-
-		public DroneUDPClient(
+		public ControllerComm(
 			string droneIp = DefaultConstants.DEFAULT_DRONE_IP,
 			int localPort = DefaultConstants.DEFAULT_LOCAL_PORT, 
 			int commandPort = DefaultConstants.DEFAULT_COMMAND_PORT,
@@ -48,8 +46,6 @@ namespace DroneController
 				Console.WriteLine(e);
 				setErrorState(true);
 			}
-
-			thread = new Thread(stateLoop);
 		}
 
 //		public void sendMessage(string msg)
@@ -91,15 +87,15 @@ namespace DroneController
 //			return "";
 //		}
 
-		public void stateLoop()
-		{
-			while (getIsCommunicationLive())
-			{
-				byte[] receiveBytes = stateReceiver.Receive(ref commandIpEndPoint);
-				string msg = Encoding.UTF8.GetString(receiveBytes);
-				// Console.WriteLine(msg);
-			}
-		}
+//		public void stateLoop()
+//		{
+//			while (getIsCommunicationLive())
+//			{
+//				byte[] receiveBytes = stateReceiver.Receive(ref commandIpEndPoint);
+//				string msg = Encoding.UTF8.GetString(receiveBytes);
+//				// Console.WriteLine(msg);
+//			}
+//		}
 
 		public void startConnection()
 		{
@@ -111,7 +107,6 @@ namespace DroneController
 			{
 				Console.WriteLine("Connected to drone successfully at " + droneIp +
 				                  ":" + commandPort + ".");
-				thread.Start();
 			}
 			else
 			{
@@ -121,12 +116,6 @@ namespace DroneController
 			}
 		}
 
-		public void stop()
-		{
-			setIsCommunicationLive(false);
-			thread.Abort();//.Join();
-		}
-		
 		public ref IPEndPoint getLocalIpEndPoint()
 		{
 			return ref localIpEndPoint;

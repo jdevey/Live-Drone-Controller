@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Text;
+using System.Threading;
 using Shared;
+using Shared.MessageTypes;
 
 namespace DroneController
 {
-	public class DroneSession
+	public class Controller : ErrorState
 	{
 		private const string START_MISSION_SLEEP_TIME = "200";
 		private const string DEFAULT_SLEEP_TIME = "1000";
@@ -54,13 +58,15 @@ namespace DroneController
 			"land"
 		};
 
-		private DroneUDPClient droneDroneUdpClient;
+		private DroneState state;
+
+		private ControllerComm controllerUdpClient;
 
 		private static readonly List<Mission> missionList = new List<Mission>();
 
-		private static bool isInErrorState;
+		private readonly Thread stateLoopThread;
 
-		public DroneSession(
+		public Controller(
 			string droneIp = DefaultConstants.DEFAULT_DRONE_IP,
 			int localPort = DefaultConstants.DEFAULT_LOCAL_PORT,
 			int commandPort = DefaultConstants.DEFAULT_COMMAND_PORT,
@@ -68,44 +74,61 @@ namespace DroneController
 			int timeout = DefaultConstants.DEFAULT_TIMEOUT,
 			uint maxRetries = DefaultConstants.DEFAULT_MAX_RETRIES)
 		{
-			droneDroneUdpClient = new DroneUDPClient(droneIp, localPort, commandPort,
+			state = new DroneState();
+			
+			controllerUdpClient = new ControllerComm(droneIp, localPort, commandPort,
 				telloStatePort, timeout, maxRetries);
 
-			addMission(ref rotateMission);
-			addMission(ref leftRightMission);
-			addMission(ref squareMission);
+			addMission(rotateMission);
+			addMission(leftRightMission);
+			addMission(squareMission);
 
-			droneDroneUdpClient.startConnection();
+			controllerUdpClient.startConnection();
+			
+			stateLoopThread = new Thread(stateLoop);
+			if (controllerUdpClient.getErrorState() == false)
+			{
+				stateLoopThread.Start();
+			}
 		}
 
-		public void addMission(ref string[] actionList)
+		public void addMission(string[] actionList)
 		{
-			List<DroneAction> droneActions = new List<DroneAction>();
+			List<Message> messages = new List<Message>();
 			foreach (string action in actionList)
 			{
-				if (action.StartsWith("sleep"))
-				{
-					int sleepMilliseconds = 1;
-					try
-					{
-						sleepMilliseconds = int.Parse(action.Split(null)[1]);
-					}
-					catch (Exception e)
-					{
-						Console.WriteLine("ERROR: Failed to parse sleep seconds.");
-						Console.WriteLine(e.Message);
-						setErrorState(true);
-					}
+				
+				Message msg = MessageFactory.createMessage(action);
+				
+				Type msgType = msg.GetType();
 
-					droneActions.Add(new SleepAction(action, sleepMilliseconds));
+				// Messages from the user should either be "sleep", a maneuver, or a query
+				if (msgType == typeof(SleepAction) ||
+				    msgType.IsSubclassOf(typeof(QueryBase)) ||
+				    msgType.IsSubclassOf(typeof(ManeuverBase)))
+				{
+					messages.Add(msg);
 				}
 				else
 				{
-					droneActions.Add(new Maneuver(action));
+					Console.WriteLine("ERROR: Attempted to add invalid command to mission: " + action);
 				}
 			}
 
-			missionList.Add(new Mission(ref droneActions));
+			missionList.Add(new Mission(messages));
+		}
+		
+		public void stateLoop()
+		{
+			while (controllerUdpClient.getIsCommunicationLive())
+			{
+				byte[] receiveBytes = controllerUdpClient.getStateRcvClient().Receive(
+					ref controllerUdpClient.getCommandIpEndPoint());
+				string msg = Utils.decodeBytes(receiveBytes);
+				Status status = new Status(msg);
+				state.updateFlyingInfo(status);
+				// Console.WriteLine(msg);
+			}
 		}
 
 		public void executeMission(int missionNumber)
@@ -118,22 +141,18 @@ namespace DroneController
 				return;
 			}
 
-			missionList[missionNumber - 1].execute(ref droneDroneUdpClient);
+			missionList[missionNumber - 1].execute(ref controllerUdpClient);
+		}
+		
+		public void stop()
+		{
+			controllerUdpClient.setIsCommunicationLive(false);
+			stateLoopThread.Abort();//.Join();
 		}
 
-		public DroneUDPClient getUDPClient()
+		public ControllerComm getUDPClient()
 		{
-			return droneDroneUdpClient;
-		}
-
-		public void setErrorState(bool errorState)
-		{
-			isInErrorState = errorState;
-		}
-
-		public bool getErrorState()
-		{
-			return isInErrorState;
+			return controllerUdpClient;
 		}
 	}
 }

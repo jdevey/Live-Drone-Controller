@@ -91,7 +91,7 @@ public Status(DroneState state) : base(getMessageTextFromState(state))
 			);
 		}
 
-		public string getMessageText()
+		public override string getMessageText()
 		{
 			return formatStringForMessage(
 				pitch, roll, yaw,

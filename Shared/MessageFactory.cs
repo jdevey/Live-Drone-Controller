@@ -41,6 +41,8 @@ namespace Shared
 				message = new Ok(text);
 			else if (text.StartsWith(Error.getKeyword()))
 				message = new Error(text);
+			else if (text.StartsWith(SleepAction.getKeyword()))
+				message = new SleepAction(text);
 			else if (text.StartsWith(BatteryQuery.getKeyword()))
 				message = new BatteryQuery(text);
 			else if (text.StartsWith(SpeedQuery.getKeyword()))

@@ -61,6 +61,7 @@
     <Compile Include="MessageTypes\Responses\DataResponse.cs" />
     <Compile Include="MessageTypes\Responses\Error.cs" />
     <Compile Include="MessageTypes\Responses\Ok.cs" />
+    <Compile Include="MessageTypes\SleepAction.cs" />
     <Compile Include="MessageTypes\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UDPCommBase.cs" />
