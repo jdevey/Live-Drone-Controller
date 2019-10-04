@@ -1,8 +1,8 @@
-﻿﻿using System.Collections.Generic;
+﻿using DroneController;
 
- namespace UnitTests
+namespace UnitTests
 {
-	public static class TestConstants
+	public class TestingUtils
 	{
 		public static string[] leftRightMission =
 		{
@@ -56,5 +56,15 @@
 			new PortTrio(8901, 8902, 8903),
 			new PortTrio(8904, 8905, 8906)
 		};
+		
+		public static Simulator.Simulator generateSim(PortTrio p)
+		{
+			return new Simulator.Simulator(commandPort: p.command, telloStatePort: p.tello);
+		}
+
+		public static Controller generateContr(PortTrio p)
+		{
+			return new Controller(commandPort: p.command, telloStatePort: p.tello, localPort: p.local);
+		}
 	}
 }

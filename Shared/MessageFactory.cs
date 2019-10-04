@@ -17,7 +17,7 @@ namespace Shared
 		{
 			for (int i = 0; i < text.Length; ++i)
 			{
-				if (Char.IsLetter(text[i]) == false)
+				if (!char.IsLetter(text[i]))
 				{
 					return text.Substring(0, i);
 				}

@@ -87,6 +87,7 @@
         <e p="DroneSessionTests.cs" t="Include" />
         <e p="DroneSimulator.cs" t="Include" />
         <e p="DroneUDPClientTests.cs" t="Include" />
+        <e p="ErrorStateTests.cs" t="Include" />
         <e p="ManeuverTests.cs" t="Include" />
         <e p="MissionTests.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
@@ -100,9 +101,11 @@
         <e p="Server.cs" t="Include" />
         <e p="SleepActionTests.cs" t="Include" />
         <e p="TestConstants.cs" t="Include" />
+        <e p="TestingUtils.cs" t="Include" />
         <e p="UDPBaseTests.cs" t="Include" />
         <e p="UDPSocket.cs" t="Include" />
         <e p="UnitTests.csproj" t="IncludeRecursive" />
+        <e p="UtilsTests.cs" t="Include" />
       </e>
     </e>
   </component>

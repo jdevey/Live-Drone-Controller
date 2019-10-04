@@ -57,6 +57,7 @@ namespace Simulator
 			catch (Exception e)
 			{
 				Console.WriteLine("ERROR: Failed to set up simulator.");
+				Console.WriteLine(e);
 				setErrorState(true);
 			}
 			if (msg == Command.getKeyword())
@@ -175,11 +176,13 @@ namespace Simulator
 			simulatorComm.setIsCommunicationLive(false);
 			if (stateBroadcastThread.IsAlive)
 			{
-				stateBroadcastThread.Join();//.Abort();
+				stateBroadcastThread.Join();
+				// stateBroadcastThread.Abort();
 			}
 			if (serverThread.IsAlive)
 			{
-				serverThread.Join();//.Abort();
+				serverThread.Join();
+				// serverThread.Abort();
 			}
 		}
 

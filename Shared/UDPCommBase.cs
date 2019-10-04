@@ -42,6 +42,7 @@ namespace Shared
 			catch (Exception e)
 			{
 				Console.WriteLine("ERROR: Failed to send message in UDP base.");
+				Console.WriteLine(e);
 				setErrorState(true);
 			}
 		}

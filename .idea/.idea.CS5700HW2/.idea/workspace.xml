@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73380a18-6a3e-48af-b81a-12bb77e16fda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/UnitTests/ControllerCommTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UnitTests/ErrorStateTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UnitTests/TestingUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UnitTests/UtilsTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneController/Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneController/ControllerComm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/ControllerComm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneController/Flyer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/Flyer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneController/bin/Debug/DroneController.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/bin/Debug/DroneController.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneController/bin/Debug/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/bin/Debug/Shared.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneController/bin/Debug/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/bin/Debug/Shared.pdb" afterDir="false" />
@@ -15,17 +15,13 @@
       <change beforePath="$PROJECT_DIR$/DroneController/bin/Debug/Simulator.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/bin/Debug/Simulator.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneController/obj/Debug/DroneController.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/obj/Debug/DroneController.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneController/obj/Debug/DroneController.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/obj/Debug/DroneController.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/DroneState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/DroneState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/Message.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Message.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/MessageTypes/Enhancements/SleepAction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/MessageTypes/Enhancements/SleepAction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/MessageTypes/Maneuvers/Curve.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/MessageTypes/Maneuvers/Curve.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/MessageFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/MessageFactory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared/UDPCommBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/UDPCommBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared/bin/Debug/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/bin/Debug/Shared.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared/bin/Debug/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/bin/Debug/Shared.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared/obj/Debug/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/obj/Debug/Shared.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared/obj/Debug/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/obj/Debug/Shared.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulator/Simulator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/Simulator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/SimulatorComm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/SimulatorComm.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulator/bin/Debug/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/bin/Debug/Shared.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulator/bin/Debug/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/bin/Debug/Shared.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulator/bin/Debug/Simulator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/bin/Debug/Simulator.dll" afterDir="false" />
@@ -33,7 +29,9 @@
       <change beforePath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/ControllerCommTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/ControllerCommTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitTests/ControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/ControllerTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/TestConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/TestConstants.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/DroneController.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/DroneController.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Shared.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Shared.pdb" afterDir="false" />
@@ -46,6 +44,7 @@
       <change beforePath="$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/obj/UnitTests.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/UnitTests.csproj.nuget.cache" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +58,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Simulator/Simulator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/41687F2D-9005-4654-91D3-3A678AAF1B77/7c/8f545df8/UdpClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Shared/MessageTypes/Queries/SpeedQuery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Shared/DefaultConstants.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UnitTests/UDPSocket.cs" root0="FORCE_HIGHLIGHTING" />
@@ -85,7 +85,9 @@
     <setting file="file://$PROJECT_DIR$/Shared/MessageTypes/Maneuvers/Rotate.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Shared/MessageFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Shared/MessageTypes/Maneuvers/DirectionalMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitTests/ErrorStateTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Simulator/SimulatorComm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitTests/UtilsTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UnitTests/ControllerCommTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Dump/shitHole/p2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Dump/shitHole/p1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -104,6 +106,7 @@
     <setting file="file://$PROJECT_DIR$/Shared/MessageTypes/Responses/Error.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Shared/MessageTypes/Responses/Ok.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/862B9365-843C-4BF1-BA93-210C124BB523/10/46af7302/Socket.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UnitTests/TestingUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Shared/MessageTypes/Queries/BatteryQuery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Shared/MessageTypes/Queries/TimeQuery.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Shared/ErrorState.cs" root0="FORCE_HIGHLIGHTING" />
@@ -118,9 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Shared/MessageTypes/Responses/ResponseBase.cs" />
-        <option value="$PROJECT_DIR$/Shared/MessageTypes/Message.cs" />
-        <option value="$PROJECT_DIR$/Shared/MessageTypes/Responses/DataResponse.cs" />
         <option value="$PROJECT_DIR$/../../../../Dump/shitHole/p2.cs" />
         <option value="$PROJECT_DIR$/Shared/MessageTypes/Command.cs" />
         <option value="$PROJECT_DIR$/Shared/MessageTypes/Queries/BatteryQuery.cs" />
@@ -154,21 +154,24 @@
         <option value="$PROJECT_DIR$/Shared/MessageTypes/Enhancements/PrintBroadcastCount.cs" />
         <option value="$PROJECT_DIR$/Shared/MessageTypes/Enhancements/PrintState.cs" />
         <option value="$PROJECT_DIR$/DroneController/Mission.cs" />
-        <option value="$PROJECT_DIR$/Shared/MessageFactory.cs" />
         <option value="$PROJECT_DIR$/Shared/DefaultConstants.cs" />
-        <option value="$PROJECT_DIR$/UnitTests/TestConstants.cs" />
         <option value="$PROJECT_DIR$/DroneController/Flyer.cs" />
-        <option value="$PROJECT_DIR$/DroneController/Controller.cs" />
         <option value="$PROJECT_DIR$/Shared/MessageTypes/Maneuvers/Curve.cs" />
         <option value="$PROJECT_DIR$/Shared/MessageTypes/Enhancements/SleepAction.cs" />
         <option value="$PROJECT_DIR$/Shared/Message.cs" />
-        <option value="$PROJECT_DIR$/UnitTests/ControllerTests.cs" />
         <option value="$PROJECT_DIR$/Simulator/SimulatorComm.cs" />
         <option value="$PROJECT_DIR$/DroneController/ControllerComm.cs" />
-        <option value="$PROJECT_DIR$/UnitTests/ControllerCommTests.cs" />
         <option value="$PROJECT_DIR$/Shared/DroneState.cs" />
-        <option value="$PROJECT_DIR$/Simulator/Simulator.cs" />
         <option value="$PROJECT_DIR$/Shared/UDPCommBase.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/UtilsTests.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/ErrorStateTests.cs" />
+        <option value="$PROJECT_DIR$/Shared/MessageFactory.cs" />
+        <option value="$PROJECT_DIR$/DroneController/Controller.cs" />
+        <option value="$PROJECT_DIR$/Simulator/Simulator.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/TestConstants.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/TestingUtils.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/ControllerCommTests.cs" />
+        <option value="$PROJECT_DIR$/UnitTests/ControllerTests.cs" />
       </list>
     </option>
   </component>
@@ -184,7 +187,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Shared/MessageTypes/BatteryQuery.cs" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="settings.editor.selected.configurable" value="SolutionBuilderGeneralOptionsPageId" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -240,7 +243,9 @@
       <workItem from="1569635662251" duration="1377000" />
       <workItem from="1569700335842" duration="26680000" />
       <workItem from="1569861522455" duration="41971000" />
-      <workItem from="1570049097109" duration="41006000" />
+      <workItem from="1570049097109" duration="43190000" />
+      <workItem from="1570167325787" duration="4142000" />
+      <workItem from="1570217853459" duration="3780000" />
     </task>
     <servers />
   </component>
@@ -291,14 +296,7 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/DroneController/OldUDPBase.cs</url>
           <line>63</line>
-          <properties documentPath="$PROJECT_DIR$/DroneController/UDPBase.cs" initialLine="63">
-            <startOffsets>
-              <option value="1463" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1532" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/DroneController/UDPBase.cs" initialLine="63" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

@@ -154,7 +154,8 @@ namespace DroneController
 			controllerUdpClient.setIsCommunicationLive(false);
 			if (stateLoopThread.IsAlive)
 			{
-				stateLoopThread.Join();//.Abort();
+				stateLoopThread.Join();
+				//stateLoopThread.Abort();
 			}
 		}
 
