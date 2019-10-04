@@ -14,6 +14,18 @@ namespace UnitTests
 			"land"
 		};
 		
+		public static string[] flipBatteryMission =
+		{
+			"takeoff",
+			"sleep 50",
+			"left 30",
+			"flip f",
+			"battery?",
+			"right 30",
+			"sleep 50",
+			"land"
+		};
+		
 		public static string[] badMission1 =
 		{
 			"takeoff",
@@ -47,12 +59,13 @@ namespace UnitTests
 			}
 		};
 		
+		// When running tests rapidly in sequence, ports and addresses aren't cleaned up fast enough.
 		public static PortTrio[] ports =
 		{
-			new PortTrio(8889, 8890, 8891),
-			new PortTrio(8892, 8893, 8894),
-			new PortTrio(8895, 8896, 8897),
-			new PortTrio(8898, 8899, 8900),
+			new PortTrio(8889, 8890, 8891), // ControllerCommTests
+			new PortTrio(8892, 8893, 8894), // ControllerTests
+			new PortTrio(8895, 8896, 8897), // MissionTests
+			new PortTrio(8898, 8899, 8900), // ErrorStateTests
 			new PortTrio(8901, 8902, 8903),
 			new PortTrio(8904, 8905, 8906)
 		};

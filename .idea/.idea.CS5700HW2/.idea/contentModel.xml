@@ -100,7 +100,6 @@
         </e>
         <e p="Server.cs" t="Include" />
         <e p="SleepActionTests.cs" t="Include" />
-        <e p="TestConstants.cs" t="Include" />
         <e p="TestingUtils.cs" t="Include" />
         <e p="UDPBaseTests.cs" t="Include" />
         <e p="UDPSocket.cs" t="Include" />

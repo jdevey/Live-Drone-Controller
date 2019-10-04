@@ -42,24 +42,11 @@ namespace Simulator
 
 		public void setupServer()
 		{
-			if (simulatorComm == null || simulatorComm.getLocalIpEndPoint() == null)
-			{
-				Console.WriteLine("h");
-			}
-
-			string msg = "";
+			string msg;
 			byte[] bytes;
-			try
-			{
-				bytes = simulatorComm.getUdpClient().Receive(ref simulatorComm.getLocalIpEndPoint());
-				msg = Utils.decodeBytes(bytes);
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine("ERROR: Failed to set up simulator.");
-				Console.WriteLine(e);
-				setErrorState(true);
-			}
+
+			bytes = simulatorComm.getUdpClient().Receive(ref simulatorComm.getLocalIpEndPoint());
+			msg = Utils.decodeBytes(bytes);
 			if (msg == Command.getKeyword())
 			{
 				simulatorComm.getTelloStateIpEndPoint() =
@@ -99,13 +86,6 @@ namespace Simulator
 			{
 				string resp = simulatorComm.getResponse(simulatorComm.getUdpClient(), simulatorComm.getLocalIpEndPoint());
 				Message msg = MessageFactory.createMessage(resp);
-				if (msg == null)
-				{
-					Console.WriteLine("ERROR: Simulator received invalid message.");
-					simulatorComm.sendMessage(Error.getKeyword(),
-						simulatorComm.getUdpClient(), simulatorComm.getLocalIpEndPoint());
-					continue;
-				}
 
 				Type msgType = msg.GetType();
 				string simResponse = Error.getKeyword();
@@ -122,15 +102,7 @@ namespace Simulator
 					else if (msgType.IsSubclassOf(typeof(ManeuverBase))) // Maneuvers
 					{
 						simResponse = Ok.getKeyword();
-						try
-						{
-							(msg as ManeuverBase).updateState(state);
-						}
-						catch (NullReferenceException e)
-						{
-							Console.WriteLine("ERROR: Attempted to update state via a class that lacks such a function.");
-							Console.WriteLine(e);
-						}
+						(msg as ManeuverBase).updateState(state);
 					}
 					else if (msgType.IsSubclassOf(typeof(QueryBase))) // Queries
 					{
@@ -164,6 +136,7 @@ namespace Simulator
 					state.setBatteryPercentage(state.getBatteryPercentage() - 1);
 					state.setHighTemperature(state.getHighTemperature() + 1);
 				}
+
 				string stateString = Status.getMessageTextFromState(state);
 				simulatorComm.sendMessage(stateString,
 					simulatorComm.getUdpClient(), simulatorComm.getTelloStateIpEndPoint());
@@ -179,6 +152,7 @@ namespace Simulator
 				stateBroadcastThread.Join();
 				// stateBroadcastThread.Abort();
 			}
+
 			if (serverThread.IsAlive)
 			{
 				serverThread.Join();

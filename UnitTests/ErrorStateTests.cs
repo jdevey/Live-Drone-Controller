@@ -11,8 +11,19 @@ namespace UnitTests
 		[Test]
 		public void Main()
 		{
-//			List <string> s = new List <string>(){"takeoff", "land"};
-//			Mission m = new Mission(s);
+			Simulator.Simulator simulator = TestingUtils.generateSim(TestingUtils.ports[3]);
+			simulator.start();
+			Controller controller = TestingUtils.generateContr(TestingUtils.ports[3]);
+			controller.getUDPClient().startConnection();
+
+			Assert.IsFalse(simulator.getErrorState(), "Simulator in error state.");
+			Assert.IsFalse(controller.getErrorState(), "Controller in error state.");
+			
+			controller.setErrorState(true);
+			Assert.IsTrue(controller.getErrorState(), "Controller not in error state");
+			
+			controller.stop();
+			simulator.stop();
 		}
 	}
 }

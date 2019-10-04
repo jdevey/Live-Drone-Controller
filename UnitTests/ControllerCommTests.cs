@@ -8,25 +8,27 @@ using Shared;
 
 namespace UnitTests
 {
-	[TestFixture, NonParallelizable, SingleThreaded]
+	[TestFixture]
 	public class ControllerCommTests
 	{
-		[Test, OneTimeSetUp, OneTimeTearDown, NonParallelizable]
+		[Test]
 		public void Main()
 		{
-			//var available = IPGlobalProperties.GetIPGlobalProperties().GetActiveUdpListeners();
-			Console.WriteLine("I'm running !!!");
-
 			Simulator.Simulator simulator = TestingUtils.generateSim(TestingUtils.ports[0]);
 			simulator.start();
-			//Controller controller = new Controller(localPort: DefaultConstants.DEFAULT_LOCAL_PORT);
 			Controller controller = TestingUtils.generateContr(TestingUtils.ports[0]);
+
 			controller.getUDPClient().startConnection();
-			//Assert.IsTrue(controller.getUDPClient().getErrorState(), "Drone not in error state.");
+			Assert.IsFalse(controller.getUDPClient().getErrorState(), "Drone in error state.");
 			
-			controller.getUDPClient().setErrorState(false);
-			controller.getUDPClient().startConnection();
-			//Assert.IsTrue(controller.getUDPClient().getErrorState(), "Drone not in error state.");
+			Controller duplicateController = TestingUtils.generateContr(TestingUtils.ports[0]);
+			Assert.IsTrue(duplicateController.getUDPClient().getErrorState(), "Duplicate controller not in error state.");
+			duplicateController.getUDPClient().setErrorState(false);
+			duplicateController.getUDPClient().startConnection();
+			Assert.IsTrue(duplicateController.getUDPClient().getErrorState(), "Duplicate controller not in error state.");
+
+			Assert.IsNotNull(controller.getUDPClient().getLocalIpEndPoint());
+			Assert.IsNotNull(controller.getUDPClient().getTelloStateIpEndPoint());
 			
 			controller.stop();
 			simulator.stop();

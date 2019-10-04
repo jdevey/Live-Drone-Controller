@@ -8,7 +8,7 @@ using Shared.MessageTypes.Enhancements;
 
 namespace DroneController
 {
-	public class Mission : ErrorState
+	public class Mission
 	{
 		private readonly List<Message> actionList;
 
@@ -24,7 +24,7 @@ namespace DroneController
 				if (state.getBatteryPercentage() < 20)
 				{
 					Console.WriteLine("WARNING: Drone battery percentage has dropped below 20%. Now landing...");
-					setErrorState(true);
+					controllerComm.setErrorState(true);
 					(new Land(Land.getKeyword())).activate(controllerComm.getDroneCommClient(), commandIpEndPoint);
 					break;
 				}
@@ -32,7 +32,7 @@ namespace DroneController
 				if (state.getHighTemperature() > 60)
 				{
 					Console.WriteLine("WARNING: Drone temperature has exceeded 60 degrees celsius. Now landing...");
-					setErrorState(true);
+					controllerComm.setErrorState(true);
 					(new Land(Land.getKeyword())).activate(controllerComm.getDroneCommClient(), commandIpEndPoint);
 					break;
 				}

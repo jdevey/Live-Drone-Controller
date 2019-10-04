@@ -1,57 +1,64 @@
-﻿//﻿using System;
-//using System.Collections.Generic;
-//using DroneController;
-//using NUnit.Framework;
-//
-//namespace UnitTests
-//{
-//	[TestFixture]
-//	public class MissionTests
-//	{
-//		[Test]
-//		public void Main()
-//		{
-//			DroneUDPClient udpClient1 = new DroneUDPClient(
-//				ref TestConstants.droneIp,
-//				ref TestConstants.dronePort);
-//			udpClient1.startConnection();
-//				
-//			Assert.IsFalse(udpClient1.getErrorState(), "Drone in error state.");
-//
-//			List<DroneAction> actions = stringToAction(ref TestConstants.leftRightMission);
-//			Assert.AreEqual(actions.Count, 6);
-//			Mission mission = new Mission(ref actions);
-//			mission.execute(ref udpClient1);
-//			Assert.IsFalse(udpClient1.getErrorState(), "Drone in error state.");
-//		}
-//
-//		List<DroneAction> stringToAction(ref string[] actionList)
-//		{
-//			List<DroneAction> droneActions = new List<DroneAction>();
-//			foreach (string action in actionList)
-//			{
-//				if (action.StartsWith("sleep"))
-//				{
-//					int sleepMilliseconds = 1;
-//					try
-//					{
-//						sleepMilliseconds = int.Parse(action.Split(null)[1]);
-//					}
-//					catch (Exception e)
-//					{
-//						Console.WriteLine("ERROR: Failed to parse sleep seconds.");
-//						Console.WriteLine(e.Message);
-//						Assert.Fail();
-//					}
-//					droneActions.Add(new SleepAction(action, sleepMilliseconds));
-//				}
-//				else
-//				{
-//					droneActions.Add(new Maneuver(action));
-//				}
-//			}
-//
-//			return droneActions;
-//		}
-//	}
-//}
+﻿﻿using System;
+using System.Collections.Generic;
+using DroneController;
+ using NUnit.Framework;
+ using Shared;
+
+ namespace UnitTests
+{
+	[TestFixture]
+	public class MissionTests
+	{
+		[Test]
+		public void Main()
+		{
+			Simulator.Simulator simulator = TestingUtils.generateSim(TestingUtils.ports[2]);
+			simulator.start();
+			Controller controller = TestingUtils.generateContr(TestingUtils.ports[2]);
+			controller.getUDPClient().startConnection();
+
+			Assert.IsFalse(simulator.getErrorState(), "Simulator in error state.");
+			Assert.IsFalse(controller.getErrorState(), "Controller in error state.");
+
+			List<Message> actions = constToMessages(TestingUtils.flipBatteryMission);
+			Assert.AreEqual(actions.Count, 8);
+			Mission mission = new Mission(actions);
+			
+			DroneState state = new DroneState();
+			
+			mission.execute(controller.getUDPClient(), controller.getUDPClient().getCommandIpEndPoint(), state);
+			Assert.IsFalse(controller.getErrorState(), "Controller in error state.");
+			Assert.IsFalse(controller.getUDPClient().getErrorState(), "Udp client in error state.");
+			
+			state.setBatteryPercentage(40);
+			mission.execute(controller.getUDPClient(), controller.getUDPClient().getCommandIpEndPoint(), state);
+			Assert.IsFalse(controller.getErrorState(), "Controller in error state.");
+			Assert.IsFalse(controller.getUDPClient().getErrorState(), "Udp client in error state.");
+			
+			state.setBatteryPercentage(5);
+			mission.execute(controller.getUDPClient(), controller.getUDPClient().getCommandIpEndPoint(), state);
+			//Console.WriteLine("Ctrl error state: " + controller.getErrorState());
+			Assert.IsTrue(controller.getUDPClient().getErrorState(), "Controller not in error state.");
+			controller.getUDPClient().setErrorState(false);
+			state.setBatteryPercentage(100);
+			
+			state.setHighTemperature(80);
+			mission.execute(controller.getUDPClient(), controller.getUDPClient().getCommandIpEndPoint(), state);
+			Assert.IsTrue(controller.getUDPClient().getErrorState(), "Controller not in error state.");
+			
+			controller.stop();
+			simulator.stop();
+		}
+
+		List<Message> constToMessages(string[] actionList)
+		{
+			List<Message> droneActions = new List<Message>();
+			foreach (string action in actionList)
+			{
+					droneActions.Add(MessageFactory.createMessage(action));
+			}
+
+			return droneActions;
+		}
+	}
+}
