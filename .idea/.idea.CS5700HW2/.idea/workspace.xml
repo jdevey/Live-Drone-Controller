@@ -2,38 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73380a18-6a3e-48af-b81a-12bb77e16fda" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Shared/MessageTypes/EnhancementBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/DroneStateTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageFactoryTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/CommandTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/EnhancementBaseTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/EnhancementTests/PrintBroadcastCountTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/EnhancementTests/PrintStateTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/EnhancementTests/SleepActionTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/ManeuverBaseTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/ManeuverTests/CurveTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/ManeuverTests/DirectionalMoveTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/ManeuverTests/FlipTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/ManeuverTests/GoTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/ManeuverTests/JumpTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/ManeuverTests/LandTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/ManeuverTests/RotateTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/ManeuverTests/TakeoffTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/QueryBaseTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/QueryTests/BatteryQueryTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/QueryTests/SpeedQueryTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/QueryTests/TimeQueryTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/ResponseBaseTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/ResponseTests/DataResponseTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/ResponseTests/ErrorTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/ResponseTests/OkTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/MessageTypesTests/StatusTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/SimulatorCommTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/SimulatorTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UnitTests/UDPCommBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DroneController/Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/Controller.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneController/bin/Debug/DroneController.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/bin/Debug/DroneController.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneController/bin/Debug/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/bin/Debug/Shared.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneController/bin/Debug/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/bin/Debug/Shared.pdb" afterDir="false" />
@@ -41,19 +11,10 @@
       <change beforePath="$PROJECT_DIR$/DroneController/bin/Debug/Simulator.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/bin/Debug/Simulator.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneController/obj/Debug/DroneController.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/obj/Debug/DroneController.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneController/obj/Debug/DroneController.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/obj/Debug/DroneController.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/Message.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Message.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/MessageFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/MessageFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/MessageTypes/Enhancements/PrintBroadcastCount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/MessageTypes/Enhancements/PrintBroadcastCount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/MessageTypes/Maneuvers/DirectionalMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/MessageTypes/Maneuvers/DirectionalMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/MessageTypes/Maneuvers/Flip.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/MessageTypes/Maneuvers/Flip.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/MessageTypes/ResponseBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/MessageTypes/ResponseBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/MessageTypes/Status.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/MessageTypes/Status.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/Shared.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Shared.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/DroneState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/DroneState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared/UDPCommBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/UDPCommBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/Utils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Utils.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared/bin/Debug/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/bin/Debug/Shared.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared/bin/Debug/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/bin/Debug/Shared.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/obj/Debug/Shared.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/obj/Debug/Shared.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared/obj/Debug/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/obj/Debug/Shared.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shared/obj/Debug/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/obj/Debug/Shared.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulator/bin/Debug/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/bin/Debug/Shared.dll" afterDir="false" />
@@ -63,17 +24,7 @@
       <change beforePath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/DroneActionTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/DroneSessionTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/DroneSimulator.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/DroneUDPClientTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/ManeuverTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/Server.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/SleepActionTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/TestingUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/TestingUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/UDPBaseTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/UDPSocket.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/UtilsTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/UtilsTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnitTests/DroneStateTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/DroneStateTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/DroneController.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/DroneController.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Shared.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Shared.pdb" afterDir="false" />
@@ -182,8 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/DroneController/Mission.cs" />
-        <option value="$PROJECT_DIR$/UnitTests/ErrorStateTests.cs" />
         <option value="$PROJECT_DIR$/UnitTests/ControllerTests.cs" />
         <option value="$PROJECT_DIR$/UnitTests/ControllerCommTests.cs" />
         <option value="$PROJECT_DIR$/UnitTests/MissionTests.cs" />
@@ -194,7 +143,6 @@
         <option value="$PROJECT_DIR$/Shared/MessageTypes/Enhancements/SleepAction.cs" />
         <option value="$PROJECT_DIR$/UnitTests/SimulatorCommTests.cs" />
         <option value="$PROJECT_DIR$/UnitTests/SimulatorTests.cs" />
-        <option value="$PROJECT_DIR$/Shared/UDPCommBase.cs" />
         <option value="$PROJECT_DIR$/UnitTests/UDPCommBase.cs" />
         <option value="$PROJECT_DIR$/Shared/MessageFactory.cs" />
         <option value="$PROJECT_DIR$/Shared/MessageTypes/Maneuvers/DirectionalMove.cs" />
@@ -233,6 +181,9 @@
         <option value="$PROJECT_DIR$/UnitTests/MessageTypesTests/QueryTests/TimeQueryTests.cs" />
         <option value="$PROJECT_DIR$/UnitTests/MessageTypesTests/EnhancementTests/PrintBroadcastCountTests.cs" />
         <option value="$PROJECT_DIR$/UnitTests/DroneStateTests.cs" />
+        <option value="$PROJECT_DIR$/Shared/UDPCommBase.cs" />
+        <option value="$PROJECT_DIR$/Shared/DroneState.cs" />
+        <option value="$PROJECT_DIR$/DroneController/Controller.cs" />
       </list>
     </option>
   </component>
@@ -265,7 +216,7 @@
   <component name="RunManager" selected=".NET Project.Debug Default">
     <configuration name="Debug Default" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/DroneController/bin/Debug/DroneController.exe" />
-      <option name="PROGRAM_PARAMETERS" value="cmdport=8889 stateport=8890 timeout=2000 retries=5 missions=3" />
+      <option name="PROGRAM_PARAMETERS" value="cmdport=8889 stateport=8890 timeout=2000 retries=5 missions=1,2,3" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DroneController/bin/Debug" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -306,7 +257,7 @@
       <workItem from="1569861522455" duration="41971000" />
       <workItem from="1570049097109" duration="43190000" />
       <workItem from="1570167325787" duration="4142000" />
-      <workItem from="1570217853459" duration="24649000" />
+      <workItem from="1570217853459" duration="25205000" />
     </task>
     <servers />
   </component>
@@ -327,37 +278,6 @@
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
           <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="118" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="118" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="7" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="118" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="7" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="77" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="118" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="81" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="118" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="81" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="177" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
@@ -370,7 +290,8 @@
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
           <item name="1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="119" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="236" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="9" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="127" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -420,19 +341,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Shared/UDPCommBase.cs</url>
-          <line>79</line>
-          <properties documentPath="$PROJECT_DIR$/Shared/UDPCommBase.cs" initialLine="79">
-            <startOffsets>
-              <option value="1972" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1996" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Shared/MessageFactory.cs</url>

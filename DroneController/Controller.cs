@@ -131,7 +131,7 @@ namespace DroneController
 				state.setStateSetCount(state.getStateSetCount() + 1);
 				if (state.getStateSetCount() % 10 == 0)
 				{
-					Console.WriteLine(msg);
+					Console.WriteLine("State update: " + msg);
 				}
 			}
 		}

@@ -77,12 +77,6 @@ namespace Shared
 				}
 			}
 
-//			if (isCommunicationLive)
-//			{
-//				Console.WriteLine("ERROR: Timed out. UDP base failed to receive from drone.");
-//				setErrorState(true);
-//			}
-
 			return "";
 		}
 

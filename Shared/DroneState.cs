@@ -8,7 +8,7 @@ namespace Shared
 	{
 		private bool inCommandMode;
 		private bool takenOff;
-		private bool videoStreamOn;
+//		private bool videoStreamOn;
 		//private DateTime stateTimestamp;
 		// private double currentFlightTime; // Not needed?
 		private int positionX; // Left and right
@@ -66,15 +66,15 @@ namespace Shared
 				resetFlyingInfo();
 		}
 
-		public bool isVideoStreamOn()
-		{
-			return videoStreamOn;
-		}
-
-		public void setVideoStreamOn(bool videoStreamOn)
-		{
-			this.videoStreamOn = inCommandMode && videoStreamOn;
-		}
+//		public bool isVideoStreamOn()
+//		{
+//			return videoStreamOn;
+//		}
+//
+//		public void setVideoStreamOn(bool videoStreamOn)
+//		{
+//			this.videoStreamOn = inCommandMode && videoStreamOn;
+//		}
 
 //		public double getCurrentFlightTime()
 //		{
@@ -281,7 +281,7 @@ namespace Shared
 
 		private void resetState()
 		{
-			videoStreamOn = false;
+//			videoStreamOn = false;
 			takenOff = false;
 			// stateTimestamp = new DateTime();
 			resetFlyingInfo();
