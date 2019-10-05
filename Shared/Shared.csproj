@@ -39,6 +39,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DefaultConstants.cs" />
+    <Compile Include="DefaultMissions\DefaultMission1.cs" />
+    <Compile Include="DefaultMissions\DefaultMission2.cs" />
+    <Compile Include="DefaultMissions\DefaultMission3.cs" />
     <Compile Include="DroneState.cs" />
     <Compile Include="ErrorState.cs" />
     <Compile Include="Message.cs" />

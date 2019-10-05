@@ -2,6 +2,8 @@
 {
 	public static class DefaultConstants
 	{
+		public const string START_MISSION_SLEEP_TIME = "200";
+		public const string DEFAULT_SLEEP_TIME = "1000";
 		public const string LOCALHOST = "127.0.0.1";
 		public const string DEFAULT_DRONE_IP = LOCALHOST;
 		public const int DEFAULT_COMMAND_PORT = 8889;

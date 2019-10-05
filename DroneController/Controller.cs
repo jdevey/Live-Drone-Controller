@@ -6,59 +6,12 @@ using System.Threading;
 using Shared;
 using Shared.MessageTypes;
 using Shared.MessageTypes.Enhancements;
+using Shared.DefaultMissions;
 
 namespace DroneController
 {
 	public class Controller : ErrorState
 	{
-		private const string START_MISSION_SLEEP_TIME = "200";
-		private const string DEFAULT_SLEEP_TIME = "1000";
-
-		public static readonly string[] rotateMission =
-		{
-			"sleep " + START_MISSION_SLEEP_TIME,
-			"takeoff",
-			"sleep " + DEFAULT_SLEEP_TIME,
-			"cw 360",
-			"sleep " + DEFAULT_SLEEP_TIME,
-			"land"
-		};
-
-		public static readonly string[] leftRightMission =
-		{
-			"sleep " + START_MISSION_SLEEP_TIME,
-			"takeoff",
-			"sleep " + DEFAULT_SLEEP_TIME,
-			"left 50",
-			"right 50",
-			"sleep " + DEFAULT_SLEEP_TIME,
-			"land"
-		};
-
-		public static readonly string[] squareMission =
-		{
-			"sleep " + START_MISSION_SLEEP_TIME,
-			"takeoff",
-			"sleep " + DEFAULT_SLEEP_TIME,
-			"right 50",
-			"sleep " + DEFAULT_SLEEP_TIME,
-			"cw 90",
-			"sleep " + DEFAULT_SLEEP_TIME,
-			"right 50",
-			"sleep " + DEFAULT_SLEEP_TIME,
-			"cw 90",
-			"sleep " + DEFAULT_SLEEP_TIME,
-			"right 50",
-			"sleep " + DEFAULT_SLEEP_TIME,
-			"cw 90",
-			"sleep " + DEFAULT_SLEEP_TIME,
-			"right 50",
-			"sleep " + DEFAULT_SLEEP_TIME,
-			"cw 90",
-			"sleep " + DEFAULT_SLEEP_TIME,
-			"land"
-		};
-
 		private readonly DroneState state;
 
 		private ControllerComm controllerUdpClient;
@@ -80,9 +33,9 @@ namespace DroneController
 			controllerUdpClient = new ControllerComm(droneIp, localPort, commandPort,
 				telloStatePort, timeout, maxRetries);
 
-			addMission(rotateMission);
-			addMission(leftRightMission);
-			addMission(squareMission);
+			addMission(DefaultMission1.rotateMission);
+			addMission(DefaultMission2.leftRightMission);
+			addMission(DefaultMission3.squareMission);
 
 			// controllerUdpClient.startConnection();
 			

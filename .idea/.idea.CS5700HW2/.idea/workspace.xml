@@ -2,41 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73380a18-6a3e-48af-b81a-12bb77e16fda" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CS5700HW2/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shared/DefaultMissions/DefaultMission1.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shared/DefaultMissions/DefaultMission2.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shared/DefaultMissions/DefaultMission3.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DroneController/Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneController/bin/Debug/DroneController.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/bin/Debug/DroneController.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneController/bin/Debug/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/bin/Debug/Shared.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneController/bin/Debug/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/bin/Debug/Shared.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneController/bin/Debug/Simulator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/bin/Debug/Simulator.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneController/bin/Debug/Simulator.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/bin/Debug/Simulator.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneController/obj/Debug/DroneController.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/obj/Debug/DroneController.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DroneController/obj/Debug/DroneController.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DroneController/obj/Debug/DroneController.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/DroneState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/DroneState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/UDPCommBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/UDPCommBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/bin/Debug/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/bin/Debug/Shared.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/bin/Debug/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/bin/Debug/Shared.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/obj/Debug/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/obj/Debug/Shared.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shared/obj/Debug/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/obj/Debug/Shared.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/bin/Debug/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/bin/Debug/Shared.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/bin/Debug/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/bin/Debug/Shared.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/bin/Debug/Simulator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/bin/Debug/Simulator.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/bin/Debug/Simulator.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/bin/Debug/Simulator.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Simulator/obj/Debug/Simulator.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/DroneStateTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/DroneStateTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/DroneController.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/DroneController.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Shared.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Shared.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Shared.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Shared.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Simulator.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Simulator.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Simulator.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/Simulator.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/UnitTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/UnitTests.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/UnitTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/UnitTests.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/nunit_random_seed.tmp" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/bin/Debug/netcoreapp2.1/nunit_random_seed.tmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/UnitTests/obj/Debug/netcoreapp2.1/UnitTests.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/DefaultConstants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/DefaultConstants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shared/Shared.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Shared/Shared.csproj" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +34,9 @@
     <setting file="file://$PROJECT_DIR$/UnitTests/SimulatorTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Shared/MessageTypes/EnhancementBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UnitTests/SimulatorCommTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/DefaultMissions/DefaultMission1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/DefaultMissions/DefaultMission2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Shared/DefaultMissions/DefaultMission3.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UnitTests/UDPCommBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DroneController/Controller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/DroneController/ControllerComm.cs" root0="FORCE_HIGHLIGHTING" />
@@ -133,10 +107,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/UnitTests/ControllerTests.cs" />
-        <option value="$PROJECT_DIR$/UnitTests/ControllerCommTests.cs" />
-        <option value="$PROJECT_DIR$/UnitTests/MissionTests.cs" />
-        <option value="$PROJECT_DIR$/Simulator/Simulator.cs" />
         <option value="$PROJECT_DIR$/Shared/MessageTypes/Enhancements/EnhancementBase.cs" />
         <option value="$PROJECT_DIR$/Shared/MessageTypes/Enhancements/PrintBroadcastCount.cs" />
         <option value="$PROJECT_DIR$/Shared/MessageTypes/EnhancementBase.cs" />
@@ -183,6 +153,10 @@
         <option value="$PROJECT_DIR$/UnitTests/DroneStateTests.cs" />
         <option value="$PROJECT_DIR$/Shared/UDPCommBase.cs" />
         <option value="$PROJECT_DIR$/Shared/DroneState.cs" />
+        <option value="$PROJECT_DIR$/Shared/DefaultConstants.cs" />
+        <option value="$PROJECT_DIR$/Shared/DefaultMissions/DefaultMission1.cs" />
+        <option value="$PROJECT_DIR$/Shared/DefaultMissions/DefaultMission2.cs" />
+        <option value="$PROJECT_DIR$/Shared/DefaultMissions/DefaultMission3.cs" />
         <option value="$PROJECT_DIR$/DroneController/Controller.cs" />
       </list>
     </option>
@@ -257,7 +231,7 @@
       <workItem from="1569861522455" duration="41971000" />
       <workItem from="1570049097109" duration="43190000" />
       <workItem from="1570167325787" duration="4142000" />
-      <workItem from="1570217853459" duration="25205000" />
+      <workItem from="1570217853459" duration="25580000" />
     </task>
     <servers />
   </component>
