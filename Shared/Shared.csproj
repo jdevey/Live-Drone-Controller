@@ -44,6 +44,7 @@
     <Compile Include="Message.cs" />
     <Compile Include="MessageFactory.cs" />
     <Compile Include="MessageTypes\Command.cs" />
+    <Compile Include="MessageTypes\EnhancementBase.cs" />
     <Compile Include="MessageTypes\Enhancements\PrintBroadcastCount.cs" />
     <Compile Include="MessageTypes\Enhancements\PrintState.cs" />
     <Compile Include="MessageTypes\Enhancements\SleepAction.cs" />

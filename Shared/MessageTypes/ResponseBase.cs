@@ -1,6 +1,6 @@
 ﻿namespace Shared.MessageTypes
 {
-	public class ResponseBase : Message
+	public abstract class ResponseBase : Message
 	{
 		public ResponseBase(string text) : base(text)
 		{

@@ -2,7 +2,7 @@
 
 namespace Shared.MessageTypes.Enhancements
 {
-	public class PrintBroadcastCount : Message
+	public class PrintBroadcastCount : EnhancementBase
 	{
 		public PrintBroadcastCount(string text) : base(text)
 		{

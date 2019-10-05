@@ -31,6 +31,7 @@
         <e p="MessageFactory.cs" t="Include" />
         <e p="MessageTypes" t="Include">
           <e p="Command.cs" t="Include" />
+          <e p="EnhancementBase.cs" t="Include" />
           <e p="Enhancements" t="Include">
             <e p="PrintBroadcastCount.cs" t="Include" />
             <e p="PrintState.cs" t="Include" />
@@ -83,12 +84,43 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="ControllerCommTests.cs" t="Include" />
         <e p="ControllerTests.cs" t="Include" />
-        <e p="DroneActionTests.cs" t="Include" />
-        <e p="DroneSessionTests.cs" t="Include" />
-        <e p="DroneSimulator.cs" t="Include" />
-        <e p="DroneUDPClientTests.cs" t="Include" />
+        <e p="DroneStateTests.cs" t="Include" />
         <e p="ErrorStateTests.cs" t="Include" />
-        <e p="ManeuverTests.cs" t="Include" />
+        <e p="MessageFactoryTests.cs" t="Include" />
+        <e p="MessageTests.cs" t="Include" />
+        <e p="MessageTypesTests" t="Include">
+          <e p="CommandTests.cs" t="Include" />
+          <e p="EnhancementBaseTests.cs" t="Include" />
+          <e p="EnhancementTests" t="Include">
+            <e p="PrintBroadcastCountTests.cs" t="Include" />
+            <e p="PrintStateTests.cs" t="Include" />
+            <e p="SleepActionTests.cs" t="Include" />
+          </e>
+          <e p="ManeuverBaseTests.cs" t="Include" />
+          <e p="ManeuverTests" t="Include">
+            <e p="CurveTests.cs" t="Include" />
+            <e p="DirectionalMoveTests.cs" t="Include" />
+            <e p="FlipTests.cs" t="Include" />
+            <e p="GoTests.cs" t="Include" />
+            <e p="JumpTests.cs" t="Include" />
+            <e p="LandTests.cs" t="Include" />
+            <e p="RotateTests.cs" t="Include" />
+            <e p="TakeoffTests.cs" t="Include" />
+          </e>
+          <e p="QueryBaseTests.cs" t="Include" />
+          <e p="QueryTests" t="Include">
+            <e p="BatteryQueryTests.cs" t="Include" />
+            <e p="SpeedQueryTests.cs" t="Include" />
+            <e p="TimeQueryTests.cs" t="Include" />
+          </e>
+          <e p="ResponseBaseTests.cs" t="Include" />
+          <e p="ResponseTests" t="Include">
+            <e p="DataResponseTests.cs" t="Include" />
+            <e p="ErrorTests.cs" t="Include" />
+            <e p="OkTests.cs" t="Include" />
+          </e>
+          <e p="StatusTests.cs" t="Include" />
+        </e>
         <e p="MissionTests.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -98,11 +130,10 @@
             </e>
           </e>
         </e>
-        <e p="Server.cs" t="Include" />
-        <e p="SleepActionTests.cs" t="Include" />
+        <e p="SimulatorCommTests.cs" t="Include" />
+        <e p="SimulatorTests.cs" t="Include" />
         <e p="TestingUtils.cs" t="Include" />
-        <e p="UDPBaseTests.cs" t="Include" />
-        <e p="UDPSocket.cs" t="Include" />
+        <e p="UDPCommBase.cs" t="Include" />
         <e p="UnitTests.csproj" t="IncludeRecursive" />
         <e p="UtilsTests.cs" t="Include" />
       </e>

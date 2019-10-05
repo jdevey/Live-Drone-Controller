@@ -14,7 +14,7 @@ namespace Shared.MessageTypes.Maneuvers
 			'b'
 		};
 		
-		private readonly char direction;
+		private char direction;
 		public Flip(string text) : base(text)
 		{
 			if (!validDirections.Contains(text[5]))
@@ -44,10 +44,10 @@ namespace Shared.MessageTypes.Maneuvers
 					state.move(-10, 0, 0);
 					break;
 				case 'f':
-					state.move(10, 0, 0);
+					state.move(0, 10, 0);
 					break;
 				case 'b':
-					state.move(-10, 0, 0);
+					state.move(0, -10, 0);
 					break;
 			}
 		}
@@ -55,6 +55,11 @@ namespace Shared.MessageTypes.Maneuvers
 		public char getDirection()
 		{
 			return direction;
+		}
+
+		public void setDirection(char d)
+		{
+			direction = d;
 		}
 	}
 }

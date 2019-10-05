@@ -62,5 +62,20 @@ namespace Shared.MessageTypes.Maneuvers
 		{
 			state.move(dx, dy, dz);
 		}
+
+		public int getX()
+		{
+			return dx;
+		}
+
+		public int getY()
+		{
+			return dy;
+		}
+
+		public int getZ()
+		{
+			return dz;
+		}
 	}
 }

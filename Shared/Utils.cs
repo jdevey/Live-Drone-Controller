@@ -41,7 +41,7 @@ namespace Shared
 				catch (Exception e)
 				{
 					Console.WriteLine(e);
-					throw;
+					return new List<int>();
 				}
 			}
 
@@ -67,7 +67,7 @@ namespace Shared
 				catch (Exception e)
 				{
 					Console.WriteLine(e);
-					throw;
+					return new List<double>();
 				}
 			}
 

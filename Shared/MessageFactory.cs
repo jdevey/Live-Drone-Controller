@@ -13,7 +13,7 @@ namespace Shared
 	{
 		// Iterate through the string until a non-letter or the end of the
 		// command is reached.
-		private static string getCommandType(string text)
+		public static string getCommandType(string text)
 		{
 			for (int i = 0; i < text.Length; ++i)
 			{

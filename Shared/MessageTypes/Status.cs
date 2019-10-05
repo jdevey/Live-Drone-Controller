@@ -110,11 +110,6 @@ namespace Shared.MessageTypes
 			);
 		}
 
-//		public override string getMessageType()
-//		{
-//			return "status";
-//		}
-
 		public int getPitch()
 		{
 			return pitch;
@@ -206,80 +201,81 @@ namespace Shared.MessageTypes
 				return;
 			}
 
-			x = parseInteger("x", stateFields[1]);
-			y = parseInteger("y", stateFields[2]);
-			z = parseInteger("z", stateFields[3]);
-			pitch = parseInteger("pitch", stateFields[5]);
-			roll = parseInteger("roll", stateFields[6]);
-			yaw = parseInteger("yaw", stateFields[7]);
-			speedX = parseInteger("vgx", stateFields[8]);
-			speedY = parseInteger("vgy", stateFields[9]);
-			speedZ = parseInteger("vgz", stateFields[10]);
-			lowTemperature = parseInteger("templ", stateFields[11]);
-			highTemperature = parseInteger("temph", stateFields[12]);
-			flightDistance = parseInteger("tof", stateFields[13]);
-			height = parseInteger("h", stateFields[14]);
-			batteryPercentage = parseInteger("bat", stateFields[15]);
-			barometerMeasurement = parseDouble("baro", stateFields[16]);
-			motorTime = parseInteger("time", stateFields[17]);
-			accelerationX = parseDouble("agx", stateFields[18]);
-			accelerationY = parseDouble("agy", stateFields[19]);
-			accelerationZ = parseDouble("agz", stateFields[20]);
+			string s = stateFields[1].Split(':')[1];
+			x = int.Parse(stateFields[1].Split(':')[1]);
+			y = int.Parse(stateFields[2].Split(':')[1]);
+			z = int.Parse(stateFields[3].Split(':')[1]);
+			pitch = int.Parse(stateFields[5].Split(':')[1]);
+			roll = int.Parse(stateFields[6].Split(':')[1]);
+			yaw = int.Parse(stateFields[7].Split(':')[1]);
+			speedX = int.Parse(stateFields[8].Split(':')[1]);
+			speedY = int.Parse(stateFields[9].Split(':')[1]);
+			speedZ = int.Parse(stateFields[10].Split(':')[1]);
+			lowTemperature = int.Parse(stateFields[11].Split(':')[1]);
+			highTemperature = int.Parse(stateFields[12].Split(':')[1]);
+			flightDistance = int.Parse(stateFields[13].Split(':')[1]);
+			height = int.Parse(stateFields[14].Split(':')[1]);
+			batteryPercentage = int.Parse(stateFields[15].Split(':')[1]);
+			barometerMeasurement = double.Parse(stateFields[16].Split(':')[1]);
+			motorTime = int.Parse(stateFields[17].Split(':')[1]);
+			accelerationX = double.Parse(stateFields[18].Split(':')[1]);
+			accelerationY = double.Parse(stateFields[19].Split(':')[1]);
+			accelerationZ = double.Parse(stateFields[20].Split(':')[1]);
 		}
-
-		private int parseInteger(string expectedLabel, string data)
-		{
-			string valueToParse = getValueToParse(expectedLabel, data);
-			if (valueToParse == null)
-				return 0;
-
-			int result = 0;
-			try
-			{
-				result = int.Parse(valueToParse);
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine("ERROR: Failed to parse to integer in Status class.");
-				Console.WriteLine(e.Message);
-			}
-
-			return result;
-		}
-
-		private double parseDouble(string expectedLabel, string data)
-		{
-			string valueToParse = getValueToParse(expectedLabel, data);
-			if (valueToParse == null)
-				return 0.0;
-
-			double result = 0.0;
-			try
-			{
-				result = double.Parse(valueToParse);
-			}
-			catch (Exception e)
-			{
-				Console.WriteLine("ERROR: Failed to parse to double in Status class.");
-				Console.WriteLine(e.Message);
-			}
-
-			return result;
-		}
-
-		private string getValueToParse(string expectedLabel, string data)
-		{
-			if (String.IsNullOrEmpty(expectedLabel) || String.IsNullOrEmpty(data))
-				return null;
-
-			string[] parts = data.Split(':');
-			if (parts.Length != 2)
-				return null;
-
-			if (parts[0].Trim() != expectedLabel)
-				return null;
-
-			return parts[1].Trim();
-		}
+//
+//		private int parseInteger(string expectedLabel, string data)
+//		{
+//			string valueToParse = getValueToParse(expectedLabel, data);
+//			if (valueToParse == null)
+//				return 0;
+//
+//			int result = 0;
+//			try
+//			{
+//				result = int.Parse(valueToParse);
+//			}
+//			catch (Exception e)
+//			{
+//				Console.WriteLine("ERROR: Failed to parse to integer in Status class.");
+//				Console.WriteLine(e.Message);
+//			}
+//
+//			return result;
+//		}
+//
+//		private double parseDouble(string expectedLabel, string data)
+//		{
+//			string valueToParse = getValueToParse(expectedLabel, data);
+//			if (valueToParse == null)
+//				return 0.0;
+//
+//			double result = 0.0;
+//			try
+//			{
+//				result = double.Parse(valueToParse);
+//			}
+//			catch (Exception e)
+//			{
+//				Console.WriteLine("ERROR: Failed to parse to double in Status class.");
+//				Console.WriteLine(e.Message);
+//			}
+//
+//			return result;
+//		}
+//
+//		private string getValueToParse(string expectedLabel, string data)
+//		{
+//			if (String.IsNullOrEmpty(expectedLabel) || String.IsNullOrEmpty(data))
+//				return null;
+//
+//			string[] parts = data.Split(':');
+//			if (parts.Length != 2)
+//				return null;
+//
+//			if (parts[0].Trim() != expectedLabel)
+//				return null;
+//
+//			return parts[1].Trim();
+//		}
 	}
 }
